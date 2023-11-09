@@ -14,8 +14,13 @@ body{
             z-index: 10;
             margin-left: 5%;
             height: 100px;
-            img{
+            div{
                 height: 80px;
+                img{
+                    &:nth-of-type(2){
+                        display: none;
+                    }
+                }
             }
         }
         figure{
@@ -164,6 +169,7 @@ body{
                         box-shadow: 1px 2px 3px gray;
                         box-shadow: 1px 1px 3px 4px rgba(128, 128, 128, 0.747);
                         display: flex;
+                        align-items: center;
                         div{
                             &:nth-of-type(odd){
                                 background-color: white;
@@ -239,10 +245,11 @@ body{
                         display: flex;
                         flex-wrap: wrap;
                         height: 65%;
-                        width: 55%;
+                        width: 75%;
                         margin-bottom: 10%;
                         svg{
                             overflow: visible;
+                            width: 100%;
                             path{
                                 fill: white;
                                 fill-opacity: 1;
@@ -302,7 +309,7 @@ body{
         }
     }
 }
-@media screen and (max-width:800px){
+@media screen and (max-width:1000px){
     body{
         header{
             figure{
@@ -351,4 +358,67 @@ body{
         }
     }
     
+}
+@media screen and (max-width:1350px){
+    body{
+        .section1{
+            article{
+                &:nth-of-type(2){
+                    div{
+                        &:nth-of-type(1){
+                            width: 75%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1650px) and (min-width:1350px){
+    body{
+        .section1{
+            article{
+                &:nth-of-type(2){
+                    div{
+                        &:nth-of-type(1){
+                            width: 65%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1920px) and (min-width:1650px){
+    body{
+        .section1{
+            article{
+                &:nth-of-type(2){
+                    div{
+                        &:nth-of-type(1){
+                            width: 55%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:500px){
+    body{
+        header{
+            h1{
+                div{
+                    img{
+                        &:nth-of-type(1){
+                            display: none;
+                        }
+                        &:nth-of-type(2){
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

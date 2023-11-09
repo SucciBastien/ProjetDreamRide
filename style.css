@@ -17,8 +17,11 @@ body header h1 {
   margin-left: 5%;
   height: 100px;
 }
-body header h1 img {
+body header h1 div {
   height: 80px;
+}
+body header h1 div img:nth-of-type(2) {
+  display: none;
 }
 body header figure {
   display: flex;
@@ -163,6 +166,7 @@ body .section1 article:nth-of-type(1) section:nth-of-type(1) {
   box-shadow: 1px 2px 3px gray;
   box-shadow: 1px 1px 3px 4px rgba(128, 128, 128, 0.747);
   display: flex;
+  align-items: center;
 }
 body .section1 article:nth-of-type(1) section:nth-of-type(1) div:nth-of-type(odd) {
   background-color: white;
@@ -234,11 +238,12 @@ body .section1 article:nth-of-type(2) div:nth-of-type(1) {
   display: flex;
   flex-wrap: wrap;
   height: 65%;
-  width: 55%;
+  width: 75%;
   margin-bottom: 10%;
 }
 body .section1 article:nth-of-type(2) div:nth-of-type(1) svg {
   overflow: visible;
+  width: 100%;
 }
 body .section1 article:nth-of-type(2) div:nth-of-type(1) svg path {
   fill: white;
@@ -292,7 +297,7 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   body header figure img {
     display: none;
   }
@@ -326,5 +331,28 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
   }
   body .section1 article:nth-of-type(2) div:nth-of-type(1) {
     width: 80%;
+  }
+}
+@media screen and (max-width: 1350px) {
+  body .section1 article:nth-of-type(2) div:nth-of-type(1) {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1650px) and (min-width: 1350px) {
+  body .section1 article:nth-of-type(2) div:nth-of-type(1) {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 1920px) and (min-width: 1650px) {
+  body .section1 article:nth-of-type(2) div:nth-of-type(1) {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 500px) {
+  body header h1 div img:nth-of-type(1) {
+    display: none;
+  }
+  body header h1 div img:nth-of-type(2) {
+    display: block;
   }
 }
