@@ -83,8 +83,7 @@ VALUES
 (6, "GT86", "essence", 1998, 4, 7.6, 200, 7000, 205, 6400, 4240, 1290, 2570, 237, 50, 2012, 5),
 (7, "Proace", "diesel", 1499, 4, NULL, 120, NULL, 300, 2000, 5310, 1900, 3280, 980, 69, 2021, 5),
 (8, "TAYCAN", "electrique", NULL, NULL, 4, 530, 640, NULL, NULL, 4960, 1380, 2900, 491, NULL, 2020, 6),
-(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 2021, 7),
-
+(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 2021, 7);
 
 DROP TABLE IF EXISTS typeVehicule ; 
 CREATE TABLE typeVehicule (
@@ -94,16 +93,15 @@ PRIMARY KEY (idTypeVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS vehicule ; 
 CREATE TABLE vehicule (
-idVehicule INT AUTO_INCREMENT NOT NULL, 
+idVehicule INT AUTO_INCREMENT NOT NULL,
 photo BLOB, 
 prix FLOAT, 
 siege INT(1), 
 porte INT(1), 
-estManuel BOOL, 
+estManuel BOOL,
 clim BOOL,
 annee INT(4), 
 idModel INT NOT NULL, 
-idMarque INT NOT NULL,
 idTypeVehicule INT NOT NULL, 
 PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
@@ -142,12 +140,6 @@ idAgence INT AUTO_INCREMENT NOT NULL,
 idVehicule INT NOT NULL, 
 PRIMARY KEY (idAgence,  idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
-DROP TABLE IF EXISTS correspondre ; 
-CREATE TABLE correspondre (
-idVehicule INT AUTO_INCREMENT NOT NULL, 
-idTypeVehicule INT NOT NULL, 
-PRIMARY KEY (idVehicule,  idTypeVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
-
 DROP TABLE IF EXISTS louer ; 
 CREATE TABLE louer (
 idVehicule INT AUTO_INCREMENT NOT NULL, 
@@ -157,13 +149,10 @@ PRIMARY KEY (idVehicule,  idClient,  idReservation) ) ENGINE=InnoDB DEFAULT CHAR
 
 ALTER TABLE agence ADD CONSTRAINT FK_agence_idManager FOREIGN KEY (idManager) REFERENCES manager (idManager); 
 ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idModel FOREIGN KEY (idModel) REFERENCES model (idModel); 
-ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idMarque FOREIGN KEY (idMarque) REFERENCES marque (idMarque);
 ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idTypeVehicule FOREIGN KEY (idTypeVehicule) REFERENCES typeVehicule (idTypeVehicule); 
 ALTER TABLE model ADD CONSTRAINT FK_model_idMarque FOREIGN KEY (idMarque) REFERENCES marque (idMarque); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idAgence FOREIGN KEY (idAgence) REFERENCES agence (idAgence); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE correspondre ADD CONSTRAINT FK_correspondre_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE correspondre ADD CONSTRAINT FK_correspondre_idTypeVehicule FOREIGN KEY (idTypeVehicule) REFERENCES typeVehicule (idTypeVehicule); 
 ALTER TABLE louer ADD CONSTRAINT FK_louer_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
 ALTER TABLE louer ADD CONSTRAINT FK_louer_idClient FOREIGN KEY (idClient) REFERENCES client (idClient); 
 ALTER TABLE louer ADD CONSTRAINT FK_louer_idReservation FOREIGN KEY (idReservation) REFERENCES reservation (idReservation);
