@@ -11,8 +11,8 @@ class reservation{
     public function getdateDebut(){return $this->dateDebut;}
     public function getdateFin(){return $this->dateFin;}
 
-    public function setidReservation($x){return $this->idReservation = $x;}
-    public function setdateDebut($x){return $this->dateDebut = $x;}
-    public function setdateFin($x){return $this->dateFin = $x;}
+    public function setidReservation($x){$this->idReservation = $x;}
+    public function setdateDebut($x){$this->dateDebut = $x;}
+    public function setdateFin($x){$this->dateFin = $x;}
 
 }

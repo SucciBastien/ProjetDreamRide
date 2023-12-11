@@ -17,15 +17,15 @@ class agence{
     public function getfermeture(){return $this->fermeture;}
     public function getidManager(){return $this->idManager;}
 
-    public function setidAgence($x){return $this->idAgence = $x;}
-    public function setville($x){return $this->ville = $x;}
-    public function setcodePostal($x){return $this->codePostal = $x;}
-    public function setregion($x){return $this->region = $x;}
-    public function setnumAgence($x){return $this->numAgence = $x;}
-    public function setmailAgence($x){return $this->mailAgence = $x;}
-    public function setouverture($x){return $this->ouverture = $x;}
-    public function setfermeture($x){return $this->fermeture = $x;}
-    public function setidManager($x){return $this->idManager = $x;}
+    public function setidAgence($x){$this->idAgence = $x;}
+    public function setville($x){$this->ville = $x;}
+    public function setcodePostal($x){$this->codePostal = $x;}
+    public function setregion($x){$this->region = $x;}
+    public function setnumAgence($x){$this->numAgence = $x;}
+    public function setmailAgence($x){$this->mailAgence = $x;}
+    public function setouverture($x){$this->ouverture = $x;}
+    public function setfermeture($x){$this->fermeture = $x;}
+    public function setidManager($x){$this->idManager = $x;}
 
     
 

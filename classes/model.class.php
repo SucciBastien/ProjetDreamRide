@@ -25,22 +25,22 @@ class model{
     public function getanneeModel(){return $this->anneeModel;}
     public function getidMarque(){return $this->idMarque;}
 
-    public function setidModel($x){return $this->idModel = $x;}
-    public function setnomModel($x){return $this->nomModel = $x;}
-    public function setcarburant($x){return $this->carburant = $x;}
-    public function setcylindree($x){return $this->cylindree = $x;}
-    public function setnbCylindre($x){return $this->nbCylindre = $x;}
-    public function setaccel($x){return $this->accel = $x;}
-    public function setpuiMax($x){return $this->puiMax = $x;}
-    public function setregPuiMax($x){return $this->regPuiMax = $x;}
-    public function setcoupleMax($x){return $this->coupleMax = $x;}
-    public function setregCoupleMax($x){return $this->regCoupleMax = $x;}
-    public function setlongueur($x){return $this->longueur = $x;}
-    public function sethauteur($x){return $this->hauteur = $x;}
-    public function setvolCoffre($x){return $this->volCoffre = $x;}
-    public function setreservoir($x){return $this->reservoir = $x;}
-    public function setpoids($x){return $this->poids = $x;}
-    public function setanneeModel($x){return $this->anneeModel = $x;}
-    public function setidMarque($x){return $this->idMarque = $x;}
+    public function setidModel($x){$this->idModel = $x;}
+    public function setnomModel($x){$this->nomModel = $x;}
+    public function setcarburant($x){$this->carburant = $x;}
+    public function setcylindree($x){$this->cylindree = $x;}
+    public function setnbCylindre($x){$this->nbCylindre = $x;}
+    public function setaccel($x){$this->accel = $x;}
+    public function setpuiMax($x){$this->puiMax = $x;}
+    public function setregPuiMax($x){$this->regPuiMax = $x;}
+    public function setcoupleMax($x){$this->coupleMax = $x;}
+    public function setregCoupleMax($x){$this->regCoupleMax = $x;}
+    public function setlongueur($x){$this->longueur = $x;}
+    public function sethauteur($x){$this->hauteur = $x;}
+    public function setvolCoffre($x){$this->volCoffre = $x;}
+    public function setreservoir($x){$this->reservoir = $x;}
+    public function setpoids($x){$this->poids = $x;}
+    public function setanneeModel($x){$this->anneeModel = $x;}
+    public function setidMarque($x){$this->idMarque = $x;}
 
 }

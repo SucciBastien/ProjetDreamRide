@@ -15,12 +15,12 @@ class client{
     public function getidentifiantClient(){return $this->identifiantClient;}
     public function getmdpClient(){return $this->mdpClient;}
 
-    public function setidClient($x){return $this->idClient = $x;}
-    public function setnomClient($x){return $this->nomClient  = $x;}
-    public function setprenomClient($x){return $this->prenomClient  = $x;}
-    public function setnumClient($x){return $this->numClient  = $x;}
-    public function setmailClient($x){return $this->mailClient  = $x;}
-    public function setidentifiantClient($x){return $this->identifiantClient  = $x;}
-    public function setmdpClient($x){return $this->mdpClient  = $x;}
+    public function setidClient($x){$this->idClient = $x;}
+    public function setnomClient($x){$this->nomClient  = $x;}
+    public function setprenomClient($x){$this->prenomClient  = $x;}
+    public function setnumClient($x){$this->numClient  = $x;}
+    public function setmailClient($x){$this->mailClient  = $x;}
+    public function setidentifiantClient($x){$this->identifiantClient  = $x;}
+    public function setmdpClient($x){$this->mdpClient  = $x;}
 
 }

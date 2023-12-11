@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0px;
 }
@@ -335,7 +338,7 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
 }
 @media screen and (max-width: 1350px) {
   body .section1 article:nth-of-type(2) div:nth-of-type(1) {
-    width: 75%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 1650px) and (min-width: 1350px) {

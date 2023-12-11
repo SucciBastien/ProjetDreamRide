@@ -2,6 +2,10 @@
 
 class manager{
 
+    private array $models;
+    private array $vehicules;
+    private array $clients;
+
     public function __construct( private int $idManager, private string $nomManager, private string $prenomManager, private string $numManager, private string $mailManager, private string $identifiantManager, private string $mdpManager )
     {
         
@@ -15,12 +19,16 @@ class manager{
     public function getidentifiantManager(){return $this->identifiantManager;}
     public function getmdpManager(){return $this->mdpManager;}
 
-    public function setidManager($x){return $this->idManager = $x;}
-    public function setnomManager($x){return $this->nomManager = $x;}
-    public function setprenomManager($x){return $this->prenomManager = $x;}
-    public function setnumManager($x){return $this->numManager = $x;}
-    public function setmailManager($x){return $this->mailManager = $x;}
-    public function setidentifiantManager($x){return $this->identifiantManager = $x;}
-    public function setmdpManager($x){return $this->mdpManager = $x;}
+    public function setidManager($x){$this->idManager = $x;}
+    public function setnomManager($x){$this->nomManager = $x;}
+    public function setprenomManager($x){$this->prenomManager = $x;}
+    public function setnumManager($x){$this->numManager = $x;}
+    public function setmailManager($x){$this->mailManager = $x;}
+    public function setidentifiantManager($x){$this->identifiantManager = $x;}
+    public function setmdpManager($x){$this->mdpManager = $x;}
+
+    public function ajoutModel($x){$this->models = $x;}
+    public function ajoutVehicule($x){$this->vehicules = $x;}
+    public function ajoutClient($x){$this->clients = $x;}
 
 }

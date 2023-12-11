@@ -11,8 +11,8 @@ class louer{
     public function getidClient(){return $this->idClient;}
     public function getidReservation(){return $this->idReservation;}
 
-    public function setidVehicule($x){return $this->idVehicule = $x;}
-    public function setidClient($x){return $this->idClient = $x;}
-    public function setidReservation($x){return $this->idReservation = $x;}
+    public function setidVehicule($x){$this->idVehicule = $x;}
+    public function setidClient($x){$this->idClient = $x;}
+    public function setidReservation($x){$this->idReservation = $x;}
 
 }

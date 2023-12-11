@@ -10,7 +10,7 @@ class contenir{
     public function getidAgence(){return $this->idAgence;}
     public function getidVehicule(){return $this->idVehicule;}
 
-    public function setidAgence($x){return $this->idAgence = $x;}
-    public function setidVehicule($x){return $this->idVehicule = $x;}
+    public function setidAgence($x){$this->idAgence = $x;}
+    public function setidVehicule($x){$this->idVehicule = $x;}
 
 }
