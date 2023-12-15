@@ -1,32 +1,32 @@
-CREATE DATABASE IF NOT EXISTS voiture;
+-- CREATE DATABASE IF NOT EXISTS voitures;
 
-USE voiture;
+-- USE voitures;
 
 DROP TABLE IF EXISTS manager ; 
 CREATE TABLE manager (
 idManager INT AUTO_INCREMENT NOT NULL, 
-nomManager VARCHAR(50), 
-prenomManager VARCHAR(50), 
-numManager VARCHAR(15), 
-mailManager VARCHAR(50), 
-identifiantManager VARCHAR(20), 
-mdpManager VARCHAR(20), 
+nomManager VARCHAR(50) NOT NULL, 
+prenomManager VARCHAR(50) NOT NULL, 
+numManager VARCHAR(15) NOT NULL, 
+mailManager VARCHAR(50) NOT NULL, 
+identifiantManager VARCHAR(20) NOT NULL, 
+mdpManager VARCHAR(20) NOT NULL, 
 PRIMARY KEY (idManager) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
-INSERT INTO manager ( `idManager`, `nomManager`, `prenomManager`, `numManager`, `mailManager`, `identifiantManager`, `mdpManager` )
+INSERT INTO `manager` ( `idManager`, `nomManager`, `prenomManager`, `numManager`, `mailManager`, `identifiantManager`, `mdpManager` )
 VALUES
 (1, "Dupont", "Patrick", "+33612345678", "manager1@gmail.com", "Manager1", "man1");
 
 DROP TABLE IF EXISTS agence ; 
 CREATE TABLE agence (
 idAgence INT AUTO_INCREMENT NOT NULL,
-ville VARCHAR(50),
-codePostal INT(5),
-region VARCHAR(50),
-numAgence VARCHAR(15),
-mailAgence VARCHAR(50),
-ouverture TIME,
-fermeture TIME,
+ville VARCHAR(50) NOT NULL,
+codePostal INT NOT NULL,
+region VARCHAR(50) NOT NULL,
+numAgence VARCHAR(15) NOT NULL,
+mailAgence VARCHAR(50) NOT NULL,
+ouverture TIME NOT NULL,
+fermeture TIME NOT NULL,
 idManager INT NOT NULL,
 PRIMARY KEY (idAgence) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,7 +37,7 @@ VALUES
 DROP TABLE IF EXISTS marque ; 
 CREATE TABLE marque (
 idMarque INT AUTO_INCREMENT NOT NULL, 
-nomMarque VARCHAR(50), 
+nomMarque VARCHAR(50) NOT NULL, 
 PRIMARY KEY (idMarque) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `marque` ( `idMarque`, `nomMarque` )
@@ -74,7 +74,7 @@ VALUES
 (30, "Ford" ),
 (31, "GAC" ),
 (32, "Geely" ),
-(33, "Great Wal"l ),
+(33, "Great Wall" ),
 (34, "Honda" ),
 (35, "Holden" ),
 (36, "Hyundai" ),
@@ -123,27 +123,27 @@ VALUES
 (79, "Toyota" ),
 (80, "Volkswagen" ),
 (81, "Volvo" ),
-(82, "Wuling" ),
+(82, "Wuling" );
 
-DROP TABLE IF EXISTS model ; 
+DROP TABLE IF EXISTS modelVehicule ; 
 CREATE TABLE model (
 idModel INT AUTO_INCREMENT NOT NULL, 
-nomModel VARCHAR(50),
-carburant VARCHAR(50),
+nomModel VARCHAR(50) NOT NULL,
+carburant VARCHAR(50) NOT NULL,
 cylindree FLOAT(5), 
-nbCylindre INT(2), 
+nbCylindre INT, 
 accel FLOAT(4), 
-puiMax INT(4), 
-regPuiMax INT(5), 
-coupleMax INT(4), 
-regCoupleMax INT(5), 
-longueur INT(4), 
-hauteur INT(4), 
-empatement INT(4), 
-volCoffre INT(4), 
-reservoir INT(3), 
+puiMax INT, 
+regPuiMax INT, 
+coupleMax INT, 
+regCoupleMax INT, 
+longueur INT NOT NULL, 
+hauteur INT NOT NULL, 
+empatement INT, 
+volCoffre INT, 
+reservoir INT, 
 poids FLOAT(6),
-anneeModel INT(4),
+anneeModel INT,
 idMarque INT NOT NULL, 
 PRIMARY KEY (idModel) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -153,28 +153,28 @@ VALUES
 (2, "C4 Picasso", "essence", 1560, 4, 12.5, 109, 4000, 240, 1750, 4470, 1680, 2730, 500, 60, 1489, 2010, 2),
 (3, "DS3", "essence", 1598, 4, 7.3, 156, 6000, 240, 4000, 3950, 1460, 2460, 285, 50, 1165, 2013, 2),
 (4, "ENZO", "essence", 5999, 6, 3.65, 660, 7800, 657, 5500, 4702, 2035, 2650, 350, 110, 1255, 2003, 3),
-(5, "GTR35", "essence", 3799, 6, 2.8, 600, 6800, 652, , 4690, 1370, 2780, 315, 74, 1800, 2020, 4),
-(6, "GT86", "essence", 1998, 4, 7.6, 200, 7000, 205, 6400, 4240, 1290, 2570, 237, 50, 2012, 5),
-(7, "Proace", "diesel", 1499, 4, NULL, 120, NULL, 300, 2000, 5310, 1900, 3280, 980, 69, 2021, 5),
-(8, "TAYCAN", "electrique", NULL, NULL, 4, 530, 640, NULL, NULL, 4960, 1380, 2900, 491, NULL, 2020, 6),
-(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 2021, 7);
+(5, "GTR35", "essence", 3799, 6, 2.8, 600, 6800, 652, NULL, 4690, 1370, 2780, 315, 74, 1800, 2020, 4),
+(6, "GT86", "essence", 1998, 4, 7.6, 200, 7000, 205, 6400, 4240, 1290, 2570, 237, 50, 1200, 2012, 5),
+(7, "Proace", "diesel", 1499, 4, NULL, 120, NULL, 300, 2000, 5310, 1900, 3280, 980, 69, 1690, 2021, 5),
+(8, "TAYCAN", "electrique", NULL, NULL, 4, 530, 640, NULL, NULL, 4960, 1380, 2900, 491, NULL, 2310, 2020, 6),
+(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 1960, 2021, 7);
 
 DROP TABLE IF EXISTS typeVehicule ; 
 CREATE TABLE typeVehicule (
 idTypeVehicule INT AUTO_INCREMENT NOT NULL, 
-nomTypeVehicule VARCHAR(50), 
+nomTypeVehicule VARCHAR(50) NOT NULL, 
 PRIMARY KEY (idTypeVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS vehicule ; 
 CREATE TABLE vehicule (
 idVehicule INT AUTO_INCREMENT NOT NULL,
 photo VARCHAR(50), 
-prix FLOAT, 
-siege INT(1), 
-porte INT(1), 
-estManuel BOOL,
+prix FLOAT NOT NULL, 
+siege INT NOT NULL, 
+porte INT NOT NULL, 
+estManuel BOOL NOT NULL,
 clim BOOL,
-annee INT(4), 
+annee INT, 
 idModel INT NOT NULL, 
 idTypeVehicule INT NOT NULL, 
 PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
@@ -182,30 +182,30 @@ PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 DROP TABLE IF EXISTS client ; 
 CREATE TABLE client (
 idClient INT AUTO_INCREMENT NOT NULL, 
-nomClient VARCHAR(50), 
-prenomClient VARCHAR(50), 
-numClient VARCHAR(15), 
-mailClient VARCHAR(50), 
-identifiantClient VARCHAR(20), 
-mdpClient VARCHAR(20), 
+nomClient VARCHAR(50) NOT NULL, 
+prenomClient VARCHAR(50) NOT NULL, 
+numClient VARCHAR(15) NOT NULL, 
+mailClient VARCHAR(50) NOT NULL, 
+identifiantClient VARCHAR(20) NOT NULL, 
+mdpClient VARCHAR(20) NOT NULL, 
 PRIMARY KEY (idClient) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS admin ; 
 CREATE TABLE admin (
 idAdmin INT AUTO_INCREMENT NOT NULL, 
-nomAdmin VARCHAR(50), 
-prenomAdmin VARCHAR(50), 
-numAdmin VARCHAR(15),
-mailAdmin VARCHAR(50), 
-identifiantAdmin VARCHAR(20), 
-mdpAdmin VARCHAR(20), 
+nomAdmin VARCHAR(50) NOT NULL, 
+prenomAdmin VARCHAR(50) NOT NULL, 
+numAdmin VARCHAR(15) NOT NULL,
+mailAdmin VARCHAR(50) NOT NULL, 
+identifiantAdmin VARCHAR(20) NOT NULL, 
+mdpAdmin VARCHAR(20) NOT NULL, 
 PRIMARY KEY (idAdmin) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 DROP TABLE IF EXISTS reservation ; 
 CREATE TABLE reservation (
 idReservation INT AUTO_INCREMENT NOT NULL, 
-dateDebut DATETIME, 
-dateFin DATETIME, 
+dateDebut DATETIME NOT NULL, 
+dateFin DATETIME NOT NULL, 
 PRIMARY KEY (idReservation) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 DROP TABLE IF EXISTS contenir ; 
