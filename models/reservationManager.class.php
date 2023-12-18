@@ -1,7 +1,7 @@
 <?php
 
 require_once "models/Model.class.php";
-require_once "models/reservation.class.php";
+require_once "models/louer.class.php";
 
 
 class reservationManager extends BDConnexion{
@@ -22,12 +22,12 @@ class reservationManager extends BDConnexion{
 
         $req->execute();
 
-        $mesreservations = $req->fetchAll(PDO::FETCH_ASSOC);
+        $mesReservations = $req->fetchAll(PDO::FETCH_ASSOC);
 
         $req->closeCursor();
 
-        foreach($mesreservations as $value){
-            $reservation = new reservation($value['idReservation'], $value['dateDebut'], $value['dateFin']);
+        foreach($mesReservations as $value){
+            $reservation = new reservation($value['idVehicule'], $value['idClient'], $value['dateDebut'], $value['dateFin']);
             $this->ajoutReservation($reservation);
         }
 

@@ -312,6 +312,24 @@ body{
         }
     }
 }
+@media screen and (max-width:500px){
+    body{
+        header{
+            h1{
+                div{
+                    img{
+                        &:nth-of-type(1){
+                            display: none;
+                        }
+                        &:nth-of-type(2){
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width:1000px){
     body{
         header{
@@ -400,24 +418,6 @@ body{
                     div{
                         &:nth-of-type(1){
                             width: 55%;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media screen and (max-width:500px){
-    body{
-        header{
-            h1{
-                div{
-                    img{
-                        &:nth-of-type(1){
-                            display: none;
-                        }
-                        &:nth-of-type(2){
-                            display: block;
                         }
                     }
                 }

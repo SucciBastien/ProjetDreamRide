@@ -1,6 +1,6 @@
 <?php
 
-require_once "controller/Controller.php";
+require_once "controller/marquesController.php";
 $marqueController = new marquesController();
 
 

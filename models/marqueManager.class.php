@@ -2,16 +2,6 @@
 
 require_once "models/Model.class.php";
 require_once "models/marque.class.php";
-require_once "models/admin.class.php";
-require_once "models/agence.class.php";
-require_once "models/client.class.php";
-require_once "models/contenir.class.php";
-require_once "models/louer.class.php";
-require_once "models/manager.class.php";
-require_once "models/modelVehicule.class.php";
-require_once "models/reservation.class.php";
-require_once "models/typeVehicule.class.php";
-require_once "models/vehicule.class.php";
 
 class marqueManager extends BDConnexion{
 

@@ -2,16 +2,18 @@
 
 class reservation{
 
-    public function __construct(private int $idReservation, private string $dateDebut, private string $dateFin)
+    public function __construct(private int $idVehicule, private int $idClient, private string $dateDebut, private string $dateFin)
     {
         
     }
 
-    public function getidReservation(){return $this->idReservation;}
+    public function getidVehicule(){return $this->idVehicule;}
+    public function getidClient(){return $this->idClient;}
     public function getdateDebut(){return $this->dateDebut;}
     public function getdateFin(){return $this->dateFin;}
 
-    public function setidReservation($x){$this->idReservation = $x;}
+    public function setidVehicule($x){$this->idVehicule = $x;}
+    public function setidClient($x){$this->idClient = $x;}
     public function setdateDebut($x){$this->dateDebut = $x;}
     public function setdateFin($x){$this->dateFin = $x;}
 

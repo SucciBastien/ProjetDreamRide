@@ -27,7 +27,4 @@ class agence{
     public function setfermeture($x){$this->fermeture = $x;}
     public function setidManager($x){$this->idManager = $x;}
 
-    
-
-
 }

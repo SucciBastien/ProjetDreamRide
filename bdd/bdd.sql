@@ -201,25 +201,19 @@ identifiantAdmin VARCHAR(20) NOT NULL,
 mdpAdmin VARCHAR(20) NOT NULL, 
 PRIMARY KEY (idAdmin) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
-DROP TABLE IF EXISTS reservation ; 
-CREATE TABLE reservation (
-idReservation INT AUTO_INCREMENT NOT NULL, 
-dateDebut DATETIME NOT NULL, 
-dateFin DATETIME NOT NULL, 
-PRIMARY KEY (idReservation) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
-
 DROP TABLE IF EXISTS contenir ; 
 CREATE TABLE contenir (
 idAgence INT AUTO_INCREMENT NOT NULL, 
 idVehicule INT NOT NULL, 
 PRIMARY KEY (idAgence,  idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
-DROP TABLE IF EXISTS louer ; 
-CREATE TABLE louer (
+DROP TABLE IF EXISTS reservation ; 
+CREATE TABLE reservation (
 idVehicule INT AUTO_INCREMENT NOT NULL, 
 idClient INT NOT NULL, 
-idReservation INT NOT NULL, 
-PRIMARY KEY (idVehicule,  idClient,  idReservation) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
+dateDebut DATE NOT NULL,
+dateFin DATE NOT NULL, 
+PRIMARY KEY (idVehicule,  idClient) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 ALTER TABLE agence ADD CONSTRAINT FK_agence_idManager FOREIGN KEY (idManager) REFERENCES manager (idManager); 
 ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idModel FOREIGN KEY (idModel) REFERENCES model (idModel); 
@@ -227,6 +221,5 @@ ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idTypeVehicule FOREIGN KEY (idTy
 ALTER TABLE model ADD CONSTRAINT FK_model_idMarque FOREIGN KEY (idMarque) REFERENCES marque (idMarque); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idAgence FOREIGN KEY (idAgence) REFERENCES agence (idAgence); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE louer ADD CONSTRAINT FK_louer_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE louer ADD CONSTRAINT FK_louer_idClient FOREIGN KEY (idClient) REFERENCES client (idClient); 
-ALTER TABLE louer ADD CONSTRAINT FK_louer_idReservation FOREIGN KEY (idReservation) REFERENCES reservation (idReservation);
+ALTER TABLE reservation ADD CONSTRAINT FK_louer_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
+ALTER TABLE reservation ADD CONSTRAINT FK_louer_idClient FOREIGN KEY (idClient) REFERENCES client (idClient); 

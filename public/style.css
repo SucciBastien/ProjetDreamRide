@@ -300,6 +300,14 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media screen and (max-width: 500px) {
+  body header h1 div img:nth-of-type(1) {
+    display: none;
+  }
+  body header h1 div img:nth-of-type(2) {
+    display: block;
+  }
+}
 @media screen and (max-width: 1000px) {
   body header figure img {
     display: none;
@@ -349,13 +357,5 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
 @media screen and (max-width: 1920px) and (min-width: 1650px) {
   body .section1 article:nth-of-type(2) div:nth-of-type(1) {
     width: 55%;
-  }
-}
-@media screen and (max-width: 500px) {
-  body header h1 div img:nth-of-type(1) {
-    display: none;
-  }
-  body header h1 div img:nth-of-type(2) {
-    display: block;
   }
 }

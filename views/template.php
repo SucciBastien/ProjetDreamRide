@@ -11,13 +11,12 @@
         <h1>
             DreamRide
             <div>
-                <img src="img/logo-removebg-preview.png" alt="">
-                <img src="img/logo_short.png" alt="">
+                <img src="public/img/logo-removebg-preview.png" alt="">
+                <img src="public/img/logo_short.png" alt="">
             </div>
-            
         </h1>
         <figure>
-            <img class="imgbanniere" src="img/bannière.png" alt="">
+            <img class="imgbanniere" src="public/img/bannière.png" alt="">
         </figure>
         <button>
             <div></div>
