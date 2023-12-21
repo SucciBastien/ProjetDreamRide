@@ -13,7 +13,7 @@ class vehiculesController{
         $this->vehiculeManager->chargementVehicules();
     }
 
-    public function afficherVehicule(){
+    public function afficherVehicules(){
         $vehicules = $this->vehiculeManager->getVehicules();
         require "views/vehicules.view.php";
     }

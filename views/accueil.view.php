@@ -2,7 +2,7 @@
 <nav>
 
 </nav>
-<section class="SectionBarreRecherche">
+<!-- <section class="SectionBarreRecherche">
     <div>
         <input type="text">
         <button></button>
@@ -11,7 +11,7 @@
         <span>Filtres</span>
         <img src="public/img/Entonoir-removebg.png" alt="">
     </button>
-</section>
+</section> -->
 <section class="section1">
     <article>
         <section>
@@ -29,12 +29,12 @@
             <a href="vehicules" class="SUV">SUV</a>
             <a href="#" class="SPORT">SPORT</a>
             <a href="#" class="FAMILIALE">FAMILIALE</a>
-            <a href="#" class="MINI">MINI</a>
-            <a href="#" class="BERLIN">BERLIN</a>
+            <a href="#" class="COUPE">COUPE</a>
+            <a href="#" class="CABRIOLET">CABRIOLET</a>
+            <a href="#" class="BERLINE">BERLINE</a>
             <a href="#" class="4X4">4X4</a>
             <a href="#" class="UTILITAIRE">UTILITAIRE</a>
-            <a href="#" class="ELECTRIQUE">ELECTRIQUE</a>
-            <a href="#" class="HYBRIDE">HYBRIDE</a>
+            <a href="#" class="BREAK">BREAK</a>
         </section>
     </article>
     <article>

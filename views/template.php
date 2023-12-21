@@ -7,14 +7,16 @@
     <title>DreamRide</title>
 </head>
 <body>
-<header>
-        <h1>
-            DreamRide
-            <div>
-                <img src="public/img/logo-removebg-preview.png" alt="">
-                <img src="public/img/logo_short.png" alt="">
-            </div>
-        </h1>
+    <header>
+        <a href="accueil">
+            <h1>
+                DreamRide
+                <div>
+                    <img src="public/img/logo-removebg-preview.png" alt="">
+                    <img src="public/img/logo_short.png" alt="">
+                </div>
+            </h1>
+        </a>
         <figure>
             <img class="imgbanniere" src="public/img/bannière.png" alt="">
         </figure>
@@ -25,5 +27,8 @@
         </button>
     </header>
     <?= $content ?>
+    <footer>
+
+    </footer>
 </body>
 </html>

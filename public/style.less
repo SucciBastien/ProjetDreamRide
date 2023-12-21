@@ -9,7 +9,8 @@ body{
         background-color:#e97000;
         height: 7rem ;
         overflow: hidden;
-        h1{
+        box-shadow: 0px 4px 3px grey;
+        a{
             font-size: 0px;
             display: flex;
             align-items: center;
@@ -71,14 +72,11 @@ body{
         }
         
     }
-    nav{
+    footer{
+        height: 5rem;
+        width: 100%;
         background-color: #e97000;
-        display: flex;
-        width: 0%;
-        height: 100vh;
-        right: 0%;
-        position: absolute;
-        transition: 1s ease-in-out;
+        box-shadow: 0px -4px 3px gray;
     }
     .SectionBarreRecherche{
         display: flex;
@@ -311,6 +309,75 @@ body{
             }
         }
     }
+    .section_vehicule{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        
+        article{
+            display: flex;
+            justify-content: baseline;
+            align-items: center;
+            height: 20rem;
+            border: 2px solid darkgray;
+            width: 60%;
+            margin-top: 1.5rem;
+            box-shadow: 0px 2px 5px gray;
+            background-color: #ccc;
+            section{
+                height: 90%;
+                &:nth-of-type(1){
+                    display: flex;
+                    flex-direction: column;
+                    width: 40%;
+                    position: relative;
+                    margin: 10px;
+                    img{
+                        border-radius: 1rem;
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                    p{
+                        background-color: #e97000;
+                        text-shadow: 0px 1px 1px black;
+                        color: white;
+                        border-radius: 2px;
+                        margin-top: 0.5rem;
+                        margin-bottom: 0px;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        box-shadow: 0px 0.5px 2px black;
+                    }
+                }
+                &:nth-of-type(2){
+                    width: 60%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        p{
+                            height: fit-content;
+                            padding: 2px;
+                            margin: 2px;
+                            font-size: 1.8rem;   
+                            &:nth-of-type(2n-1){
+                                text-decoration: underline solid black;
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
+    }
+    
 }
 @media screen and (max-width:500px){
     body{

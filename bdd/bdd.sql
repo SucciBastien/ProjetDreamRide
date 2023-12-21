@@ -165,6 +165,18 @@ idTypeVehicule INT AUTO_INCREMENT NOT NULL,
 nomTypeVehicule VARCHAR(50) NOT NULL, 
 PRIMARY KEY (idTypeVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `typeVehicule` ( `idTypeVehicule`, `nomTypeVehicule` )
+VALUES
+(1, "suv"),
+(2, "sport"),
+(3, "luxe"),
+(4, "coupe"),
+(5, "berline"),
+(6, "4x4"),
+(7, "utilitaire"),
+(8, "break"),
+(9, "cabriolet");
+
 DROP TABLE IF EXISTS vehicule ; 
 CREATE TABLE vehicule (
 idVehicule INT AUTO_INCREMENT NOT NULL,
@@ -177,7 +189,14 @@ clim BOOL,
 annee INT, 
 idModel INT NOT NULL, 
 idTypeVehicule INT NOT NULL, 
-PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
+PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `vehicule`( `idVehicule`, `photo`, `prix`, `siege`, `porte`, `estManuel`, `clim`, `annee`, `idModel`, `idTypeVehicule` )
+VALUES
+(1, "206_XBOX_360", 49.98, 5, 5, 1, 0, 2007, 1, 5),
+(2, "proace", 70, 6, 4, 0, 1, 2018, 7, 7),
+(3, "taycan", 149.98, 4, 4, 0, 1, 2020, 8, 3);
+
 
 DROP TABLE IF EXISTS client ; 
 CREATE TABLE client (
