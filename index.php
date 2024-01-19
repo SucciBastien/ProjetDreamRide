@@ -9,17 +9,18 @@ $vehiculesController = new vehiculesController();
 
 if(empty($_GET['page'])){
     require_once "views/accueil.view.php";
-}
-else{
+} else {
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
-    switch($_GET['page']){
-        case "accueil" : require "views/accueil.view.php";
-        break;
+    echo $url;
+    switch($url[0]){
+        case "accueil" : 
+            // echo "blablab";
+            require "views/accueil.view.php";
+            break;
         case "vehicules" :
             if (empty($url[1])){
                 $vehiculesController->afficherVehicules();
             }
-            
-        break;
+            break;
     }
 }
