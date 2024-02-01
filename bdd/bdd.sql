@@ -149,15 +149,15 @@ PRIMARY KEY (idModel) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `model` ( `idModel`, `nomModel`, `carburant`, `cylindree`, `nbCylindre`, `accel`, `puiMax`, `regPuiMax`, `coupleMax`, `regCoupleMax`, `longueur`, `hauteur`, `empatement`, `volCoffre`, `reservoir`, `poids`, `anneeModel`, `idMarque` )
 VALUES
-(1, "206 XBOX 360", "essence", 1360, 4, 12.7, 75, 4000, 160, 3400, 3835, 1432, 2445, 245, 50, 1025, 2006, 1),
-(2, "C4 Picasso", "essence", 1560, 4, 12.5, 109, 4000, 240, 1750, 4470, 1680, 2730, 500, 60, 1489, 2010, 2),
-(3, "DS3", "essence", 1598, 4, 7.3, 156, 6000, 240, 4000, 3950, 1460, 2460, 285, 50, 1165, 2013, 2),
-(4, "ENZO", "essence", 5999, 6, 3.65, 660, 7800, 657, 5500, 4702, 2035, 2650, 350, 110, 1255, 2003, 3),
-(5, "GTR35", "essence", 3799, 6, 2.8, 600, 6800, 652, NULL, 4690, 1370, 2780, 315, 74, 1800, 2020, 4),
-(6, "GT86", "essence", 1998, 4, 7.6, 200, 7000, 205, 6400, 4240, 1290, 2570, 237, 50, 1200, 2012, 5),
-(7, "Proace", "diesel", 1499, 4, NULL, 120, NULL, 300, 2000, 5310, 1900, 3280, 980, 69, 1690, 2021, 5),
-(8, "TAYCAN", "electrique", NULL, NULL, 4, 530, 640, NULL, NULL, 4960, 1380, 2900, 491, NULL, 2310, 2020, 6),
-(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 1960, 2021, 7);
+(1, "206 XBOX 360", "essence", 1360, 4, 12.7, 75, 4000, 160, 3400, 3835, 1432, 2445, 245, 50, 1025, 2006, 61),
+(2, "C4 Picasso", "essence", 1560, 4, 12.5, 109, 4000, 240, 1750, 4470, 1680, 2730, 500, 60, 1489, 2010, 19),
+(3, "DS3", "essence", 1598, 4, 7.3, 156, 6000, 240, 4000, 3950, 1460, 2460, 285, 50, 1165, 2013, 19),
+(4, "ENZO", "essence", 5999, 6, 3.65, 660, 7800, 657, 5500, 4702, 2035, 2650, 350, 110, 1255, 2003, 28),
+(5, "GTR35", "essence", 3799, 6, 2.8, 600, 6800, 652, NULL, 4690, 1370, 2780, 315, 74, 1800, 2020, 59),
+(6, "GT86", "essence", 1998, 4, 7.6, 200, 7000, 205, 6400, 4240, 1290, 2570, 237, 50, 1200, 2012, 79),
+(7, "Proace", "diesel", 1499, 4, NULL, 120, NULL, 300, 2000, 5310, 1900, 3280, 980, 69, 1690, 2021, 79),
+(8, "TAYCAN", "electrique", NULL, NULL, 4, 530, 640, NULL, NULL, 4960, 1380, 2900, 491, NULL, 2310, 2020, 63),
+(9, "La Voiture Noire", "essence", 7993, 16, 2.4, 1500, 6700, 1600, 2000, 4569, 2038, 2711, 440, 100, 1960, 2021, 12);
 
 DROP TABLE IF EXISTS typeVehicule ; 
 CREATE TABLE typeVehicule (
@@ -236,7 +236,6 @@ PRIMARY KEY (idVehicule,  idClient) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE agence ADD CONSTRAINT FK_agence_idManager FOREIGN KEY (idManager) REFERENCES manager (idManager); 
 ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idModel FOREIGN KEY (idModel) REFERENCES model (idModel); 
-ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idTypeVehicule FOREIGN KEY (idTypeVehicule) REFERENCES typeVehicule (idTypeVehicule); 
 ALTER TABLE model ADD CONSTRAINT FK_model_idMarque FOREIGN KEY (idMarque) REFERENCES marque (idMarque); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idAgence FOREIGN KEY (idAgence) REFERENCES agence (idAgence); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 

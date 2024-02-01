@@ -7,19 +7,21 @@ require_once "controller/vehiculesController.php";
 $vehiculesController = new vehiculesController();
 
 
+
 if(empty($_GET['page'])){
     require_once "views/accueil.view.php";
 } else {
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
-    echo $url;
     switch($url[0]){
         case "accueil" : 
-            // echo "blablab";
-            require "views/accueil.view.php";
+            require_once "views/accueil.view.php";
             break;
         case "vehicules" :
             if (empty($url[1])){
                 $vehiculesController->afficherVehicules();
+            }
+            else if($url[1] === "m"){
+                $vehiculesController->modificationVehicule($url[2]);
             }
             break;
     }

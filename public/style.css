@@ -76,7 +76,7 @@ body footer {
   width: 100%;
   background-color: #e97000;
   box-shadow: 0px -4px 3px gray;
-  position: absolute;
+  position: sticky;
   bottom: 0%;
 }
 body .SectionBarreRecherche {
@@ -312,7 +312,7 @@ body .section_vehicule article {
   display: flex;
   justify-content: baseline;
   align-items: center;
-  height: 20rem;
+  height: fit-content;
   border: 2px solid darkgray;
   width: 60%;
   margin-top: 1.5rem;
@@ -363,6 +363,19 @@ body .section_vehicule article section:nth-of-type(2) div p {
 }
 body .section_vehicule article section:nth-of-type(2) div p:nth-of-type(2n-1) {
   text-decoration: underline solid black;
+}
+body .section_vehicule form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  align-items: center;
+  height: fit-content;
+  border: 2px solid darkgray;
+  border-top: none;
+  padding: 2px;
+  width: 60%;
+  box-shadow: 0px 2px 5px gray;
+  background-color: #ccc;
 }
 @media screen and (max-width: 500px) {
   body header h1 div img:nth-of-type(1) {

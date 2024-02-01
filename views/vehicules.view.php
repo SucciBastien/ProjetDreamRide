@@ -1,26 +1,75 @@
-<?php ob_start();?>
+<?php ob_start();
+require_once "controller/modelsVehiculeController.php";
+require_once "controller/marquesController.php";
+$modelsVehiculeController = new modelsVehiculeController();
+$marquesController = new marquesController();
+$marques = $marquesController->afficherMarque();
+$modelsVehicule = $modelsVehiculeController->afficherModelsVehicule();
+?>
 
 <section class="section_vehicule">
+    <form action="" method="post">
+        <label for="Prix">Changer le prix :</label>
+        <input type="number" name="Prix">
+        <label for="NbSiege">Changer le nombre de siege</label>
+        <input type="number" name="NbSiege">
+        <label for="NbPorte">Changer le nombre de porte</label>
+        <input type="number" name="NbPorte">
+        <label for="EstManuel">Changer le type de boite</label>
+        <select name="EstManuel">
+            <option value="true">Manuelle</option>
+            <option value="false">Automatique</option>
+        </select>
+        <label for="Clim">Changer le type de clim</label>
+        <select name="Clim">
+            <option value="true">Avec climatisation</option>
+            <option value="false">Sans climatisation</option>
+        </select>
+        <label for="Circulation">Changer l'année de circulation</label>
+        <input type="number" name="Circulation">
+        <button type="submit" style="background-color: green;">Ajouter</button>
+    </form>
     <?php for($i=0; $i<count($vehicules); $i++) :?>
     <article>
         <section>
             <img src="/public/img/<?= $vehicules[$i]->getPhoto();?>">
-            <p>Marque</p>
-            <p>Modele</p>
+            <p><?= $marques[($modelsVehicule[($vehicules[$i]->getidModel()) - 1]->getidMarque()) - 1]->getnomMarque();?></p>
+            <p><?= $modelsVehicule[($vehicules[$i]->getidModel()) - 1]->getnomModel();?></p>
         </section>
         <section>
             <div><p>Prix de location à l'heure </p><p>: <?= $vehicules[$i]->getprix();?> €</p></div>
             <div><p>Nombre de sièges </p><p>: <?= $vehicules[$i]->getsiege();?></p></div>
             <div><p>Nombre de portes </p><p>: <?= $vehicules[$i]->getporte();?></p></div>
-            <div><p>
-                Boite de vitesse </p><p>: <?php if ($vehicules[$i]->getestManuel() == 1){?>Manuelle<?php }else{?>Automatique<?php } ?>
-            </p></div>
-            <div><p>
-                Climatisation </p><p>: <?php if ($vehicules[$i]->getclim() == 1){?>Avec<?php }else{?>Sans<?php } ?>
-            </p></div>
+            <div><p>Boite de vitesse </p><p>: <?php if ($vehicules[$i]->getestManuel() == 1){?>Manuelle<?php }else{?>Automatique<?php } ?></p></div>
+            <div><p>Climatisation </p><p>: <?php if ($vehicules[$i]->getclim() == 1){?>Avec<?php }else{?>Sans<?php } ?></p></div>
             <div><p>Mise en circulation </p><p>: <?= $vehicules[$i]->getannee();?></p></div>
         </section>
     </article>
+    <form action="<?= URL ?>vehicules/m/<?= $vehicules[$i]->getidVehicule(); ?>" method="post">
+        <label for="nouveauPrix">Changer le prix :</label>
+        <input type="number" name="nouveauPrix">
+        <label for="nouveauNbSiege">Changer le nombre de siege</label>
+        <input type="number" name="nouveauNbSiege">
+        <label for="nouveauNbPorte">Changer le nombre de porte</label>
+        <input type="number" name="nouveauNbPorte">
+        <label for="nouveauEstManuel">Changer le type de boite</label>
+        <select name="nouveauEstManuel">
+            <option value="true">Manuelle</option>
+            <option value="false">Automatique</option>
+        </select>
+        <label for="nouveauClim">Changer le type de clim</label>
+        <select name="nouveauClim">
+            <option value="true">Avec climatisation</option>
+            <option value="false">Sans climatisation</option>
+        </select>
+        <label for="nouveauCirculation">Changer l'année de circulation</label>
+        <input type="number" name="nouveauCirculation">
+        <input type="hidden" name="identifiant" value="<?= $vehicules[$i]->getidVehicule();?>">
+        <button type="submit">Valider</button>
+    </form>
+    <form action="<?= URL ?>vehicules/d/<?= $vehicules[$i]->getidVehicule(); ?>" method="post">
+        <button type="submit" style="background-color: red;">SUPPRIMER</button>
+    </form>
     <?php endfor; ?>
 </section>
 

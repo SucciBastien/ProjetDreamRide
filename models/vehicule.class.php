@@ -2,7 +2,7 @@
 
 class vehicule{
 
-    public function __construct(private int $idVehicule, private string $photo, private float $prix, private int $siege, private int $porte, private bool $estManuel, private bool $clim, private int $annee, private int $idModel, private int $idTypeVehicule)
+    public function __construct(private int $idVehicule, private string $photo, private float $prix, private int $siege, private int $porte, private int $estManuel, private $clim, private int $annee, private int $idModel, private int $idTypeVehicule)
     {
         
     }

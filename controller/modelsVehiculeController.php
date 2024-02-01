@@ -15,7 +15,7 @@ class modelsVehiculeController{
 
     public function afficherModelsVehicule(){
         $modelsVehicule = $this->modelsVehiculeManager->getModelsVehicule();
-        require "views/vehicules.view.php";
+        return $modelsVehicule;
     }
 
 }

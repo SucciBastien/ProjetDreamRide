@@ -15,7 +15,7 @@ class marquesController{
 
     public function afficherMarque(){
         $marques = $this->marqueManager->getmarques();
-        require "views/vehicules.view.php";
+        return $marques;
     }
 
 }

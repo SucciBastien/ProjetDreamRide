@@ -17,7 +17,7 @@ class modelVehiculeManager extends BDConnexion{
     public function getModelsVehicule(){return $this->modelsVehicule;}
 
     public function chargementModelsVehicule(){
-        $req = $this->getBdd()->prepare('SELECT * FROM modelVehicule');
+        $req = $this->getBdd()->prepare('SELECT * FROM model');
 
         $req->execute();
 

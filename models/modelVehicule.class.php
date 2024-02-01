@@ -2,7 +2,7 @@
 
 class modelVehicule{
 
-    public function __construct(private int $idModel, private string $nomModel, private string $carburant, private float $cylindree, private int $nbCylindre, private float $accel, private int $puiMax, private int $regPuiMax, private int $coupleMax, private int $regCoupleMax, private int $longueur, private int $hauteur, private int $empatement, private int $volCoffre, private int $reservoir, private float $poids, private int $anneeModel, private int $idMarque)
+    public function __construct(private int $idModel, private string $nomModel, private string $carburant, private $cylindree, private $nbCylindre, private $accel, private int $puiMax, private $regPuiMax, private $coupleMax, private $regCoupleMax, private int $longueur, private int $hauteur, private int $empatement, private int $volCoffre, private $reservoir, private float $poids, private int $anneeModel, private int $idMarque)
     {
         
     }
