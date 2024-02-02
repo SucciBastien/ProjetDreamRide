@@ -40,7 +40,7 @@ class vehiculeManager extends BDConnexion{
         }
     }
 
-    public function modificationVehiculeBD($id, $prix, $siege, $porte, $estManuel, $clim, $annee){
+    public function modificationVehiculeBDD($id, $prix, $siege, $porte, $estManuel, $clim, $annee){
         $req = "UPDATE vehicule SET prix = :prix, siege = :siege, porte = :porte, estManuel = :estManuel, clim = :clim, annee = :annee WHERE idvehicule = :idvehicule;";
 
         $stmt = $this->getBDD()->prepare($req);
@@ -67,4 +67,31 @@ class vehiculeManager extends BDConnexion{
         }
     }
 
+    public function ajoutVehiculeBDD($photo, $prix, $siege, $porte, $estManuel, $clim, $annee, $idModel, $idTypeVehicule){
+        $req = "INSERT INTO vehicule(photo, prix, siege, porte, estManuel, clim, annee, idModel, idTypeVehicule)
+        VALUES
+        (:photo, :prix, :siege, :porte, :estManuel, :clim, :annee, :idModel, :idTypeVehicule)";
+
+        $stmt = $this->getBDD()->prepare($req);
+
+        $stmt->bindValue(":idvehicule", $photo, PDO::PARAM_STR);
+        $stmt->bindValue(":prix", $prix, PDO::PARAM_STR);
+        $stmt->bindValue(":siege", $siege, PDO::PARAM_INT);
+        $stmt->bindValue(":porte", $porte, PDO::PARAM_INT);
+        $stmt->bindValue(":estManuel", $estManuel, PDO::PARAM_INT);
+        $stmt->bindValue(":clim", $clim, PDO::PARAM_INT);
+        $stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
+        $stmt->bindValue(":idModel", $idModel, PDO::PARAM_INT);
+        $stmt->bindValue(":idTypeVehicule", $idTypeVehicule, PDO::PARAM_INT);
+
+        $resultat = $stmt->execute();
+
+        $stmt->closeCursor();
+
+        if($resultat > 0){
+            $vehicule = new vehicule($this->getBdd()->lastInsertId(), $photo, $prix, $siege, $porte, $estManuel, $clim, $annee, $idModel, $idTypeVehicule);
+            $this->ajoutVehicule($vehicule);
+        }
+
+    }
 }

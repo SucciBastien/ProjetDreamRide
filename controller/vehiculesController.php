@@ -37,8 +37,24 @@ class vehiculesController{
         else{
             $clim = 0;
         }
-        $this->vehiculeManager->modificationvehiculeBD($_POST["identifiant"], $_POST["nouveauPrix"], $_POST["nouveauNbSiege"], $_POST["nouveauNbPorte"], $manuel, $clim, $_POST["nouveauCirculation"]);
+        $this->vehiculeManager->modificationvehiculeBDD($_POST["identifiant"], $_POST["nouveauPrix"], $_POST["nouveauNbSiege"], $_POST["nouveauNbPorte"], $manuel, $clim, $_POST["nouveauCirculation"]);
         header('Location: ' . URL . "vehicules");
+    }
+
+    public function ajoutVehicule(){
+        if ($_POST["estManuel"] == "true"){
+            $manuel = 1;
+        }
+        else{
+            $manuel = 0;
+        }
+        if ($_POST["Clim"] == "true"){
+            $clim = 1;
+        }
+        else{
+            $clim = 0;
+        }
+        $this->vehiculeManager->ajoutVehiculeBDD($_FILES["image"]["name"], $_POST["Prix"], $_POST["NbSiege"], $_POST["NbPorte"], $manuel, $clim, $_POST["Circulation"], $_POST["idModel"], $_POST["idTypeVehicule"]);
     }
 
 }
