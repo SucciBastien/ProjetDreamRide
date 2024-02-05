@@ -42,7 +42,7 @@ class vehiculesController{
     }
 
     public function ajoutVehicule(){
-        if ($_POST["estManuel"] == "true"){
+        if ($_POST["EstManuel"] == "true"){
             $manuel = 1;
         }
         else{
@@ -54,6 +54,7 @@ class vehiculesController{
         else{
             $clim = 0;
         }
+
         $this->vehiculeManager->ajoutVehiculeBDD($_FILES["image"]["name"], $_POST["Prix"], $_POST["NbSiege"], $_POST["NbPorte"], $manuel, $clim, $_POST["Circulation"], $_POST["idModel"], $_POST["idTypeVehicule"]);
     }
 

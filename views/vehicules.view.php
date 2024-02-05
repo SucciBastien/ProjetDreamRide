@@ -41,7 +41,7 @@ $typesVehicule = $typesVehiculeController->afficherTypesVehicule();
         <label for="idTypeVehicule">Type de Vehicule</label>
         <select name="idTypeVehicule">
             <?php for($i = 0; $i < count($typesVehicule); $i++) :?>
-                <option value="<?= $typesVehicule[$i]->getidModel() ?>"><?= $typesVehicule[$i]->getnomModel() ?></option>
+                <option value="<?= $typesVehicule[$i]->getidTypeVehicule() ?>"><?= $typesVehicule[$i]->getnomTypeVehicule() ?></option>
             <?php endfor ?>
         </select>
         <button type="submit" style="background-color: green;">Ajouter</button>

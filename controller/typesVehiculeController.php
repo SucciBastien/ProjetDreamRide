@@ -1,7 +1,7 @@
 <?php
 
-require_once "Models/typesVehiculeManager.class.php";
-require_once "Models/Model.class.php";
+require_once "models/typeVehiculeManager.class.php";
+require_once "models/Model.class.php";
 
 class typesVehiculeController{
 
@@ -15,7 +15,7 @@ class typesVehiculeController{
 
     public function afficherTypesVehicule(){
         $typesVehicule = $this->typesVehiculeManager->getTypesVehicule();
-        require "views/vehicules.view.php";
+        return $typesVehicule;
     }
 
 }
