@@ -369,6 +369,7 @@ body .section_vehicule form {
   flex-wrap: wrap;
   justify-content: baseline;
   align-items: center;
+  position: relative;
   height: fit-content;
   border: 2px solid darkgray;
   border-top: none;
@@ -376,6 +377,25 @@ body .section_vehicule form {
   width: 60%;
   box-shadow: 0px 2px 5px gray;
   background-color: #ccc;
+}
+body .section_vehicule form p {
+  width: 100%;
+}
+body .section_vehicule form label {
+  text-decoration: underline black solid;
+  margin-right: 5px;
+}
+body .section_vehicule form input {
+  margin-right: 5px;
+  margin-bottom: 2px;
+  padding: 2px;
+  border: 1px black solid;
+  border-radius: 2px;
+}
+body .section_vehicule form select {
+  margin-right: 5px;
+  margin-bottom: 2px;
+  padding: 2px;
 }
 @media screen and (max-width: 500px) {
   body header h1 div img:nth-of-type(1) {

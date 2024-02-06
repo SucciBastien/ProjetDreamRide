@@ -26,6 +26,9 @@ if(empty($_GET['page'])){
             else if($url[1] === "a"){
                 $vehiculesController->ajoutVehicule();
             }
+            else if($url[1] === "d"){
+                $vehiculesController->suppressionVehicule($url[2]);
+            }
             break;
     }
 }

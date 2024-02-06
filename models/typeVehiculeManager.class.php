@@ -16,6 +16,14 @@ class typeVehiculeManager extends BDConnexion{
 
     public function getTypesVehicule(){return $this->typesVehicule;}
 
+    public function getTypeVehiculeById($id){
+        for($i=0; $i<count($this->typesVehicule); $i++){
+            if($this->typesVehicule[$i]->getidTypeVehicule() == $id){
+                return $this->typesVehicule[$i];
+            }
+        }
+    }
+
     public function chargementTypesVehicules(){
         $req = $this->getBdd()->prepare('SELECT * FROM typeVehicule');
 
