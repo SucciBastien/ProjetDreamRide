@@ -80,29 +80,21 @@ $typesVehicule = $typesVehiculeController->afficherTypesVehicule();
         </select>
         <label for="nouveauClim">Changer le type de clim :</label>
         <select name="nouveauClim">
-            <option value="true">Avec climatisation</option>
-            <option value="false">Sans climatisation</option>
+            <option value="true" <?php if ($vehicules[$i]->getClim() == 1) :?> selected <?php endif ?>>Avec climatisation</option>
+            <option value="false" <?php if ($vehicules[$i]->getClim() == 0) :?> selected <?php endif ?>>Sans climatisation</option>
         </select>
         <label for="nouveauCirculation">Changer l'année de circulation :</label>
         <input type="number" name="nouveauCirculation"  value="<?= $vehicules[$i]->getannee();?>">
         <label for="nouveauIdModel">Model</label>
         <select name="nouveauIdModel">
             <?php for($j = 0; $j < count($modelsVehicule); $j++) :?>
-                <?php if ( ($modelsVehicule[$j]->getidModel()) == ($vehicules[$i]->getidModel()) ) :?>
-                    <option value="<?= $modelsVehicule[$j]->getidModel() ?>" selected><?= $modelsVehicule[$j]->getnomModel() ?></option>
-                <?php else : ?>
-                    <option value="<?= $modelsVehicule[$j]->getidModel() ?>"><?= $modelsVehicule[$j]->getnomModel() ?></option>
-                <?php endif ?>
+                <option value="<?= $modelsVehicule[$j]->getidModel() ?>" <?php if ( ($modelsVehicule[$j]->getidModel()) == ($vehicules[$i]->getidModel()) ) :?> selected <?php endif ?>><?= $modelsVehicule[$j]->getnomModel() ?></option>
             <?php endfor ?>
         </select>
         <label for="nouveauIdTypeVehicule">Type de Vehicule</label>
         <select name="nouveauIdTypeVehicule">
             <?php for($j = 0; $j < count($typesVehicule); $j++) :?>
-                <?php if ( ($typesVehicule[$j]->getidTypeVehicule()) == ($vehicules[$i]->getidTypeVehicule()) ) : ?>
-                    <option value="<?= $typesVehicule[$j]->getidTypeVehicule() ?>" selected ><?= $typesVehicule[$j]->getnomTypeVehicule() ?></option>
-                <?php else :?>
-                    <option value="<?= $typesVehicule[$j]->getidTypeVehicule() ?>"><?= $typesVehicule[$j]->getnomTypeVehicule() ?></option>
-                <?php endif ?>
+                <option value="<?= $typesVehicule[$j]->getidTypeVehicule() ?>" <?php if ( ($typesVehicule[$j]->getidTypeVehicule()) == ($vehicules[$i]->getidTypeVehicule()) ) : ?> selected <?php endif ?>><?= $typesVehicule[$j]->getnomTypeVehicule() ?></option>
             <?php endfor ?>
         </select>
         <input type="hidden" name="identifiant" value="<?= $vehicules[$i]->getidVehicule();?>">
