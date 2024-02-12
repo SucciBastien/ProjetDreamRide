@@ -32,4 +32,29 @@ class clientManager extends BDConnexion{
 
     }
 
+    public function ajoutClientBDD($nomClient, $prenomClient, $numClient, $mailClient, $identifiantClient, $mdpClient){
+        $req = "INSERT INTO client(nomClient, prenomClient, numClient, mailClient, identifiantClient, mdpClient)
+        VALUES
+        (:nomClient, :prenomClient, :numClient, :mailClient, :identifiantClient, :mdpClient)";
+
+        $stmt = $this->getBDD()->prepare($req);
+
+        $stmt->bindValue(":nomClient", $nomClient, PDO::PARAM_STR);
+        $stmt->bindValue(":prenomClient", $prenomClient, PDO::PARAM_STR);
+        $stmt->bindValue(":numClient", $numClient, PDO::PARAM_INT);
+        $stmt->bindValue(":mailClient", $mailClient, PDO::PARAM_INT);
+        $stmt->bindValue(":identifiantClient", $identifiantClient, PDO::PARAM_INT);
+        $stmt->bindValue(":mdpClient", $mdpClient, PDO::PARAM_INT);
+
+        $resultat = $stmt->execute();
+
+        $stmt->closeCursor();
+
+        if($resultat > 0){
+            $client = new client($this->getBdd()->lastInsertId(), $nomClient, $prenomClient, $numClient, $mailClient, $identifiantClient, $mdpClient);
+            $this->ajoutClient($client);
+        }
+
+    }
+
 }

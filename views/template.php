@@ -20,15 +20,25 @@
         <figure>
             <img class="imgbanniere" src="public/img/bannière.png" alt="">
         </figure>
-        <button>
+        <button id="openBurger">
             <div></div>
             <div></div>
             <div></div>
         </button>
+        
     </header>
+    <aside class="ferme" id="menu">
+        <button id="closeBurger">
+            <div></div>
+            <div></div>
+        </button>
+        <a href="connexion"><button>Connexion</button></a>
+        <a href="inscription"><button>Inscription</button></a>
+    </aside>
     <?= $content ?>
     <footer>
-
+        <p>© Succi Bastien</p>
     </footer>
+    <script src="public/script.js"></script>
 </body>
 </html>

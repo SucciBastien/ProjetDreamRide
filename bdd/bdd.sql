@@ -1,16 +1,17 @@
--- CREATE DATABASE IF NOT EXISTS voitures;
+DROP DATABASE voitures;
+CREATE DATABASE IF NOT EXISTS voitures;
 
--- USE voitures;
+USE voitures;
 
 DROP TABLE IF EXISTS manager ; 
 CREATE TABLE manager (
 idManager INT AUTO_INCREMENT NOT NULL, 
-nomManager VARCHAR(50) NOT NULL, 
-prenomManager VARCHAR(50) NOT NULL, 
-numManager VARCHAR(15) NOT NULL, 
-mailManager VARCHAR(50) NOT NULL, 
-identifiantManager VARCHAR(20) NOT NULL, 
-mdpManager VARCHAR(20) NOT NULL, 
+nomManager VARCHAR(255) NOT NULL, 
+prenomManager VARCHAR(255) NOT NULL, 
+numManager VARCHAR(255) NOT NULL, 
+mailManager VARCHAR(255) NOT NULL, 
+identifiantManager VARCHAR(255) NOT NULL, 
+mdpManager VARCHAR(255) NOT NULL, 
 PRIMARY KEY (idManager) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 INSERT INTO `manager` ( `idManager`, `nomManager`, `prenomManager`, `numManager`, `mailManager`, `identifiantManager`, `mdpManager` )
@@ -20,11 +21,11 @@ VALUES
 DROP TABLE IF EXISTS agence ; 
 CREATE TABLE agence (
 idAgence INT AUTO_INCREMENT NOT NULL,
-ville VARCHAR(50) NOT NULL,
+ville VARCHAR(255) NOT NULL,
 codePostal INT NOT NULL,
-region VARCHAR(50) NOT NULL,
-numAgence VARCHAR(15) NOT NULL,
-mailAgence VARCHAR(50) NOT NULL,
+region VARCHAR(255) NOT NULL,
+numAgence VARCHAR(255) NOT NULL,
+mailAgence VARCHAR(255) NOT NULL,
 ouverture TIME NOT NULL,
 fermeture TIME NOT NULL,
 idManager INT NOT NULL,
@@ -37,7 +38,7 @@ VALUES
 DROP TABLE IF EXISTS marque ; 
 CREATE TABLE marque (
 idMarque INT AUTO_INCREMENT NOT NULL, 
-nomMarque VARCHAR(50) NOT NULL, 
+nomMarque VARCHAR(255) NOT NULL, 
 PRIMARY KEY (idMarque) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `marque` ( `idMarque`, `nomMarque` )
@@ -128,8 +129,8 @@ VALUES
 DROP TABLE IF EXISTS modelVehicule ; 
 CREATE TABLE model (
 idModel INT AUTO_INCREMENT NOT NULL, 
-nomModel VARCHAR(50) NOT NULL,
-carburant VARCHAR(50) NOT NULL,
+nomModel VARCHAR(255) NOT NULL,
+carburant VARCHAR(255) NOT NULL,
 cylindree FLOAT(5), 
 nbCylindre INT, 
 accel FLOAT(4), 
@@ -162,7 +163,7 @@ VALUES
 DROP TABLE IF EXISTS typeVehicule ; 
 CREATE TABLE typeVehicule (
 idTypeVehicule INT AUTO_INCREMENT NOT NULL, 
-nomTypeVehicule VARCHAR(50) NOT NULL, 
+nomTypeVehicule VARCHAR(255) NOT NULL, 
 PRIMARY KEY (idTypeVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `typeVehicule` ( `idTypeVehicule`, `nomTypeVehicule` )
@@ -180,7 +181,7 @@ VALUES
 DROP TABLE IF EXISTS vehicule ; 
 CREATE TABLE vehicule (
 idVehicule INT AUTO_INCREMENT NOT NULL,
-photo VARCHAR(50), 
+photo VARCHAR(255), 
 prix FLOAT NOT NULL, 
 siege INT NOT NULL, 
 porte INT NOT NULL, 
@@ -201,23 +202,23 @@ VALUES
 DROP TABLE IF EXISTS client ; 
 CREATE TABLE client (
 idClient INT AUTO_INCREMENT NOT NULL, 
-nomClient VARCHAR(50) NOT NULL, 
-prenomClient VARCHAR(50) NOT NULL, 
-numClient VARCHAR(15) NOT NULL, 
-mailClient VARCHAR(50) NOT NULL, 
-identifiantClient VARCHAR(20) NOT NULL, 
-mdpClient VARCHAR(20) NOT NULL, 
+nomClient VARCHAR(255) NOT NULL, 
+prenomClient VARCHAR(255) NOT NULL, 
+numClient VARCHAR(255) NOT NULL, 
+mailClient VARCHAR(255) NOT NULL, 
+identifiantClient VARCHAR(255) NOT NULL, 
+mdpClient VARCHAR(255) NOT NULL, 
 PRIMARY KEY (idClient) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS admin ; 
 CREATE TABLE admin (
 idAdmin INT AUTO_INCREMENT NOT NULL, 
-nomAdmin VARCHAR(50) NOT NULL, 
-prenomAdmin VARCHAR(50) NOT NULL, 
-numAdmin VARCHAR(15) NOT NULL,
-mailAdmin VARCHAR(50) NOT NULL, 
-identifiantAdmin VARCHAR(20) NOT NULL, 
-mdpAdmin VARCHAR(20) NOT NULL, 
+nomAdmin VARCHAR(255) NOT NULL, 
+prenomAdmin VARCHAR(255) NOT NULL, 
+numAdmin VARCHAR(255) NOT NULL,
+mailAdmin VARCHAR(255) NOT NULL, 
+identifiantAdmin VARCHAR(255) NOT NULL, 
+mdpAdmin VARCHAR(255) NOT NULL, 
 PRIMARY KEY (idAdmin) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 DROP TABLE IF EXISTS contenir ; 

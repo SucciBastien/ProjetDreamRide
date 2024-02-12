@@ -4,7 +4,9 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 require_once "controller/vehiculesController.php";
+require_once "controller/clientsController.php";
 $vehiculesController = new vehiculesController();
+$clientsController = new clientsController();
 
 
 
@@ -29,6 +31,17 @@ if(empty($_GET['page'])){
             else if($url[1] === "d"){
                 $vehiculesController->suppressionVehicule($url[2]);
             }
+            break;
+        case "connexion" :
+            if (empty($url[1])){
+                require "views/connexion.php";
+            }
+            else if($url[1] === "i"){
+                $clientsController->ajoutClient();
+            }
+            break;
+        case "inscription" :
+            require "views/inscription.php";
             break;
     }
 }
