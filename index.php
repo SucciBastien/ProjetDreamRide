@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http").
 "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
@@ -15,10 +15,12 @@ if(empty($_GET['page'])){
 } else {
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
     switch($url[0]){
-        case "accueil" : 
+        case "accueil" :
+            $_SESSION["mdpDif"] = "";
             require_once "views/accueil.view.php";
             break;
         case "vehicules" :
+            $_SESSION["mdpDif"] = "";
             if (empty($url[1])){
                 $vehiculesController->afficherVehicules();
             }
@@ -32,16 +34,22 @@ if(empty($_GET['page'])){
                 $vehiculesController->suppressionVehicule($url[2]);
             }
             break;
+        case substr($url[0], 0, 8) == "vehicule" :
+            $_SESSION["mdpDif"] = "";
+            $vehiculesController->afficherVehicule(intval(substr($url[0], 8)));
+            break;
         case "connexion" :
             if (empty($url[1])){
                 require "views/connexion.php";
             }
+            break;
+        case "inscription" :
+            if (empty($url[1])){
+                require "views/inscription.php";
+            }
             else if($url[1] === "i"){
                 $clientsController->ajoutClient();
             }
-            break;
-        case "inscription" :
-            require "views/inscription.php";
             break;
     }
 }

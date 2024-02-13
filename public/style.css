@@ -71,7 +71,7 @@ body header button:hover {
   transform: scale(110%);
   background-color: #ffffff88;
 }
-body aside {
+body #menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,14 +86,14 @@ body aside {
   width: 30vw;
   transition: 0.7s ease-in-out;
 }
-body aside a {
+body #menu a {
   width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
 }
-body aside a button {
+body #menu a button {
   width: 70%;
   height: 3rem;
   background-color: black;
@@ -103,7 +103,7 @@ body aside a button {
   margin-top: 4px;
   margin-bottom: 3px;
 }
-body aside #closeBurger {
+body #menu #closeBurger {
   width: 70%;
   height: 3rem;
   background-color: black;
@@ -113,7 +113,7 @@ body aside #closeBurger {
   margin-top: 4px;
   margin-bottom: 3px;
 }
-body aside #closeBurger:nth-of-type(1) {
+body #menu #closeBurger:nth-of-type(1) {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -129,21 +129,22 @@ body aside #closeBurger:nth-of-type(1) {
   border-radius: 5px;
   transition: 0.2s ease-in-out;
 }
-body aside #closeBurger:nth-of-type(1) div {
+body #menu #closeBurger:nth-of-type(1) div {
   position: absolute;
   border-radius: 1rem;
   width: 60px;
   height: 10px;
   background-color: black;
 }
-body aside #closeBurger:nth-of-type(1) div:nth-of-type(1) {
+body #menu #closeBurger:nth-of-type(1) div:nth-of-type(1) {
   transform: rotate(0.125turn);
 }
-body aside #closeBurger:nth-of-type(1) div:nth-of-type(2) {
+body #menu #closeBurger:nth-of-type(1) div:nth-of-type(2) {
   transform: rotate(0.875turn);
 }
 body #divInscription {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
@@ -160,9 +161,11 @@ body #divInscription form {
   box-shadow: 1px 1px 3px 3px rgba(128, 128, 128, 0.747);
   border-radius: 20px;
   font-size: 25px;
+  color: red;
 }
 body #divInscription form label {
   margin-top: 10px;
+  color: black;
 }
 body #divInscription form input {
   width: 100%;
@@ -185,9 +188,13 @@ body footer {
   position: fixed;
   bottom: 0%;
   font-size: 20px;
+  margin-top: 20px;
 }
 body footer p {
   margin-left: 10%;
+}
+body .footer_push {
+  margin-bottom: 6rem;
 }
 body .section1 {
   position: relative;
@@ -345,40 +352,56 @@ body .section1 article:nth-of-type(2) div:nth-of-type(2) button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-body .section_vehicule {
+body #filtresVehiculesContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 2%;
+  margin-top: 15px;
+  height: 60%;
+  width: 10rem;
+  background-color: #ccc;
+}
+body .section_vehicules {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
 }
-body .section_vehicule article {
+body .section_vehicules article {
   display: flex;
   justify-content: baseline;
   align-items: center;
   height: fit-content;
   border: 2px solid darkgray;
-  width: 60%;
+  width: fit-content;
   margin-top: 1.5rem;
   box-shadow: 0px 2px 5px gray;
   background-color: #ccc;
 }
-body .section_vehicule article section {
+body .section_vehicules article a {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+body .section_vehicules article a section {
   height: 90%;
 }
-body .section_vehicule article section:nth-of-type(1) {
+body .section_vehicules article a section:nth-of-type(1) {
   display: flex;
   flex-direction: column;
-  width: 40%;
   position: relative;
   margin: 10px;
 }
-body .section_vehicule article section:nth-of-type(1) img {
+body .section_vehicules article a section:nth-of-type(1) img {
   border-radius: 1rem;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 400px;
+  max-height: 400px;
 }
-body .section_vehicule article section:nth-of-type(1) p {
+body .section_vehicules article a section:nth-of-type(1) p {
   background-color: #e97000;
   text-shadow: 0px 1px 1px black;
   color: white;
@@ -389,57 +412,110 @@ body .section_vehicule article section:nth-of-type(1) p {
   font-size: 1.5rem;
   box-shadow: 0px 0.5px 2px black;
 }
-body .section_vehicule article section:nth-of-type(2) {
-  width: 60%;
+body .section_vehicules article a section:nth-of-type(2) {
+  padding: 5px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: start;
 }
-body .section_vehicule article section:nth-of-type(2) div {
+body .section_vehicules article a section:nth-of-type(2) div {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-body .section_vehicule article section:nth-of-type(2) div p {
+body .section_vehicules article a section:nth-of-type(2) div img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+body .section_vehicules article a section:nth-of-type(2) div p {
   height: fit-content;
   padding: 2px;
   margin: 2px;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
-body .section_vehicule article section:nth-of-type(2) div p:nth-of-type(2n-1) {
-  text-decoration: underline solid black;
-}
-body .section_vehicule form {
+body .section_vehicules form {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: baseline;
-  align-items: center;
+  align-items: start;
   position: relative;
   height: fit-content;
   border: 2px solid darkgray;
   border-top: none;
-  padding: 2px;
-  width: 60%;
+  padding: 5px;
   box-shadow: 0px 2px 5px gray;
   background-color: #ccc;
+  font-size: 1.2rem;
 }
-body .section_vehicule form p {
+body .section_vehicules form p {
   width: 100%;
 }
-body .section_vehicule form label {
+body .section_vehicules form label {
   text-decoration: underline black solid;
-  margin-right: 5px;
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
-body .section_vehicule form input {
+body .section_vehicules form input {
   margin-right: 5px;
   margin-bottom: 2px;
   padding: 2px;
   border: 1px black solid;
   border-radius: 2px;
 }
-body .section_vehicule form select {
+body .section_vehicules form select {
   margin-right: 5px;
   margin-bottom: 2px;
   padding: 2px;
+}
+body .section_vehicules form button {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  background-color: green;
+}
+body .section_vehicule {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+body .section_vehicule img {
+  border-radius: 1rem;
+  max-width: 100%;
+  max-height: 100%;
+}
+body .section_vehicule p {
+  background-color: #e97000;
+  text-shadow: 0px 1px 1px black;
+  color: white;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 1.5rem;
+  box-shadow: 0px 0.5px 2px black;
+}
+body .section_vehicule div {
+  display: flex;
+  flex-direction: row;
+}
+body .section_vehicule div p {
+  background-color: transparent;
+  color: black;
+  text-shadow: none;
+  box-shadow: none;
+  height: fit-content;
+  padding: 2px;
+  margin: 2px;
+  font-size: 1.8rem;
+}
+body .section_vehicule div p:nth-of-type(2n-1) {
+  text-decoration: underline solid black;
 }
 @media screen and (max-width: 500px) {
   body header h1 div img:nth-of-type(1) {

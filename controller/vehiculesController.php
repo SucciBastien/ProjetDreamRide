@@ -20,7 +20,7 @@ class vehiculesController{
 
     public function afficherVehicule($id){
         $vehicule = $this->vehiculeManager->getVehiculeById($id);
-        require "Views/afficherVehicule.view.php";
+        require "Views/vehicule.view.php";
     }
 
     public function modificationVehicule($id){

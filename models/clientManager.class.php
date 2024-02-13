@@ -41,10 +41,10 @@ class clientManager extends BDConnexion{
 
         $stmt->bindValue(":nomClient", $nomClient, PDO::PARAM_STR);
         $stmt->bindValue(":prenomClient", $prenomClient, PDO::PARAM_STR);
-        $stmt->bindValue(":numClient", $numClient, PDO::PARAM_INT);
-        $stmt->bindValue(":mailClient", $mailClient, PDO::PARAM_INT);
-        $stmt->bindValue(":identifiantClient", $identifiantClient, PDO::PARAM_INT);
-        $stmt->bindValue(":mdpClient", $mdpClient, PDO::PARAM_INT);
+        $stmt->bindValue(":numClient", $numClient, PDO::PARAM_STR);
+        $stmt->bindValue(":mailClient", $mailClient, PDO::PARAM_STR);
+        $stmt->bindValue(":identifiantClient", $identifiantClient, PDO::PARAM_STR);
+        $stmt->bindValue(":mdpClient", $mdpClient, PDO::PARAM_STR);
 
         $resultat = $stmt->execute();
 

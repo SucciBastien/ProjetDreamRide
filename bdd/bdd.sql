@@ -1,7 +1,7 @@
-DROP DATABASE voitures;
-CREATE DATABASE IF NOT EXISTS voitures;
+-- DROP DATABASE voitures;
+-- CREATE DATABASE IF NOT EXISTS voitures;
 
-USE voitures;
+-- USE voitures;
 
 DROP TABLE IF EXISTS manager ; 
 CREATE TABLE manager (

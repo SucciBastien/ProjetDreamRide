@@ -19,11 +19,13 @@ class clientsController{
 
     public function ajoutClient(){
         if ($_POST["mdp"] == $_POST["mdpConfirm"]){
-            $this->clientManager->ajoutClientBDD($_POST["nom"], $_POST["prenom"], $_POST["num"], $_POST["mail"], $_POST["identifiant"], $_POST["mdp"], );
+            $this->clientManager->ajoutClientBDD($_POST["nom"], $_POST["prenom"], $_POST["num"], $_POST["mail"], $_POST["identifiant"], password_hash($_POST["mdp"], PASSWORD_DEFAULT) );
+            $_SESSION["mdpDif"] = "";
             header('Location: ' . URL . "accueil");
         }
         else{
-            echo "Mots de passe différents";
+            $_SESSION["mdpDif"] = "Mots de passe différents !";
+            header('Location: ' . URL . "inscription");
         }
     }
 

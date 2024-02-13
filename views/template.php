@@ -25,7 +25,6 @@
             <div></div>
             <div></div>
         </button>
-        
     </header>
     <aside class="ferme" id="menu">
         <button id="closeBurger">
@@ -35,10 +34,12 @@
         <a href="connexion"><button>Connexion</button></a>
         <a href="inscription"><button>Inscription</button></a>
     </aside>
-    <?= $content ?>
+    <div class="footer_push">
+        <?= $content ?>
+    </div>
     <footer>
         <p>© Succi Bastien</p>
     </footer>
-    <script src="public/script.js"></script>
+    <script src="../public/script.js"></script>
 </body>
 </html>
