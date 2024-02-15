@@ -28,7 +28,7 @@
         <section>
             <a href="vehicules" class="SUV">SUV</a>
             <a href="vehicules" class="SPORT">SPORT</a>
-            <a href="vehicules" class="FAMILIALE">FAMILIALE</a>
+            <a href="vehicules" class="LUXE">LUXE</a>
             <a href="vehicules" class="COUPE">COUPE</a>
             <a href="vehicules" class="CABRIOLET">CABRIOLET</a>
             <a href="vehicules" class="BERLINE">BERLINE</a>

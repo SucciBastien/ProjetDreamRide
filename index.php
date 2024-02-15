@@ -16,11 +16,9 @@ if(empty($_GET['page'])){
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
     switch($url[0]){
         case "accueil" :
-            $_SESSION["mdpDif"] = "";
             require_once "views/accueil.view.php";
             break;
         case "vehicules" :
-            $_SESSION["mdpDif"] = "";
             if (empty($url[1])){
                 $vehiculesController->afficherVehicules();
             }
@@ -35,7 +33,7 @@ if(empty($_GET['page'])){
             }
             break;
         case substr($url[0], 0, 8) == "vehicule" :
-            $_SESSION["mdpDif"] = "";
+            
             $vehiculesController->afficherVehicule(intval(substr($url[0], 8)));
             break;
         case "connexion" :
@@ -45,6 +43,7 @@ if(empty($_GET['page'])){
             break;
         case "inscription" :
             if (empty($url[1])){
+                $_SESSION["mdpDif"] = "";
                 require "views/inscription.php";
             }
             else if($url[1] === "i"){
