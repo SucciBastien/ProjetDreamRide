@@ -18,7 +18,7 @@ if(empty($_GET['page'])){
         case "accueil" :
             require_once "views/accueil.view.php";
             break;
-        case "vehicules" :
+        case substr($url[0], 0, 9) == "vehicules" :
             if (empty($url[1])){
                 $vehiculesController->afficherVehicules();
             }
@@ -33,7 +33,6 @@ if(empty($_GET['page'])){
             }
             break;
         case substr($url[0], 0, 8) == "vehicule" :
-            
             $vehiculesController->afficherVehicule(intval(substr($url[0], 8)));
             break;
         case "connexion" :

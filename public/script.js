@@ -12,8 +12,17 @@ openBurger.addEventListener("click", function(){
 
 var allArticle = document.querySelectorAll(".articleVehicule")
 var allForm = document.querySelectorAll(".formVehicule")
+var url = window.location.href
+
+if (url.substring(17, 26) == "vehicules"){
+    checkFiltres()
+}
+
 
 function checkFiltres(){
+    var check = url.substring(26, url.length) + "Check" 
+    document.getElementById(check).setAttribute("checked", "")
+
     for (let i=1; i<allArticle.length + 1; i++){
         var article = document.querySelector(`.articleVehicule${i}`)
         var forms = document.querySelectorAll(`.formVehicule${i}`)

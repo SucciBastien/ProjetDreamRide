@@ -26,15 +26,15 @@
             </div>
         </section>
         <section>
-            <a href="vehicules" class="SUV">SUV</a>
-            <a href="vehicules" class="SPORT">SPORT</a>
-            <a href="vehicules" class="LUXE">LUXE</a>
-            <a href="vehicules" class="COUPE">COUPE</a>
-            <a href="vehicules" class="CABRIOLET">CABRIOLET</a>
-            <a href="vehicules" class="BERLINE">BERLINE</a>
-            <a href="vehicules" class="4X4">4X4</a>
-            <a href="vehicules" class="UTILITAIRE">UTILITAIRE</a>
-            <a href="vehicules" class="BREAK">BREAK</a>
+            <a href="vehiculessuv" class="SUV">SUV</a>
+            <a href="vehiculessport" class="SPORT">SPORT</a>
+            <a href="vehiculesluxe" class="LUXE">LUXE</a>
+            <a href="vehiculescoupe" class="COUPE">COUPE</a>
+            <a href="vehiculescabriolet" class="CABRIOLET">CABRIOLET</a>
+            <a href="vehiculesberline" class="BERLINE">BERLINE</a>
+            <a href="vehicules4x4" class="4X4">4X4</a>
+            <a href="vehiculesutilitaire" class="UTILITAIRE">UTILITAIRE</a>
+            <a href="vehiculesbreak" class="BREAK">BREAK</a>
         </section>
     </article>
     <article>
