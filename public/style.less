@@ -201,6 +201,43 @@ body{
             }
             
         }
+        #divConnexion{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                width: fit-content;
+                background-color: #ccc;
+                padding: 10px;
+                border: 1px black solid;
+                box-shadow: 1px 1px 3px 3px rgba(128, 128, 128, 0.747);
+                border-radius: 20px;
+                font-size: 25px;
+                color: red;
+                label{
+                    margin-top: 10px;
+                    color: black;
+                }
+                input{
+                    width: 100%;
+                    height: 30px;
+                    font-size: 25px;
+                }
+                button{
+                    margin-top: 10px;
+                    background-color: #e97000;
+                    font-size: 25px;
+                    border-radius: 10px;
+                }
+            }
+            
+        }
         .section1{
             position: relative;
             width: 90vw;
@@ -337,7 +374,7 @@ body{
                 }
             }
         }
-        #filtresVehiculesContainer{
+        #filtresContainer{
             display: flex;
             flex-direction: column;
             position: fixed;
@@ -346,6 +383,10 @@ body{
             height: 60%;
             width: fit-content;
             background-color: #ccc;
+            z-index: 4;
+            border: 1px solid black;
+            overflow: hidden;
+            transition: 0.4s ease-in-out;
             div{
                 display: flex;
                 flex-direction: row;
@@ -370,7 +411,58 @@ body{
             select{
                 margin: 5px;
             }
-            
+            button{
+                position: relative;
+                height: 20px;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                img{
+                    position: absolute;
+                    top: 0%;
+                    right: 0%;
+                    height: 20px;
+                    width: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .section_agences{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            section{
+                width: fit-content;
+                article{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: baseline;
+                    align-items: center;
+                    height: fit-content;
+                    border: 2px solid darkgray;
+                    width: fit-content;
+                    margin-top: 1.5rem;
+                    box-shadow: 0px 2px 5px gray;
+                    background-color: #ccc;
+                    div{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        p{
+                            height: fit-content;
+                            padding: 2px;
+                            margin: 2px;
+                            font-size: 1.5rem;
+                            strong{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
         }
         .section_vehicules{
             width: 100%;
@@ -651,8 +743,11 @@ body{
     }
 }
 
-.ferme{
+.fermeburger{
     translate: 100% 0%;
+}
+.fermefiltre{
+    height: 30px !important;
 }
 .hidden{
     display: none !important;

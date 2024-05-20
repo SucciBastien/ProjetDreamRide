@@ -2,28 +2,49 @@ var openBurger = document.getElementById("openBurger")
 var closeBurger = document.getElementById("closeBurger")
 var menu = document.getElementById("menu")
 
+
 closeBurger.addEventListener("click", function(){
-    menu.classList.add("ferme")
+    menu.classList.add("fermeburger")
 })
 
 openBurger.addEventListener("click", function(){
-    menu.classList.remove("ferme")
+    menu.classList.remove("fermeburger")
 })
 
-var allArticle = document.querySelectorAll(".articleVehicule")
+var allArticleVehicules = document.querySelectorAll(".articleVehicule")
+var allArticleAgences = document.querySelectorAll(".articleAgence")
 var allForm = document.querySelectorAll(".formVehicule")
 var url = window.location.href
+var filtres = document.getElementById("filtresContainer")
+var closefiltres = document.getElementById("closefiltre")
+var openfiltres = document.getElementById("openfiltre")
 
-if (url.substring(17, 26) == "vehicules"){
-    checkFiltres()
+if(closefiltres != null || openfiltres != null){
+    closefiltres.addEventListener("click", function(){
+        filtres.classList.add("fermefiltre")
+        closefiltres.classList.add("hidden")
+        openfiltres.classList.remove("hidden")
+    })
+    openfiltres.addEventListener("click", function(){
+        filtres.classList.remove("fermefiltre")
+        closefiltres.classList.remove("hidden")
+        openfiltres.classList.add("hidden")
+    })
 }
 
 
-function checkFiltres(){
-    var check = url.substring(26, url.length) + "Check" 
-    document.getElementById(check).setAttribute("checked", "")
+if (url.substring(23, 32) == "vehicules"){
+    checkFiltresVehicules()
+}
 
-    for (let i=1; i<allArticle.length + 1; i++){
+if (url.substring(23, 30) == "agences"){
+    checkFiltresAgences()
+}
+
+
+function checkFiltresVehicules(){
+
+    for (let i=1; i<allArticleVehicules.length + 1; i++){
         var article = document.querySelector(`.articleVehicule${i}`)
         var forms = document.querySelectorAll(`.formVehicule${i}`)
         var txtPrixHoraire = article.querySelectorAll("section")[1].querySelectorAll("div")[0].querySelector("p").innerHTML
@@ -32,6 +53,7 @@ function checkFiltres(){
         var typeBoiteVitesse = article.querySelectorAll("section")[1].querySelectorAll("div")[3].querySelector("p").innerHTML.toLowerCase()
         var clim = article.querySelectorAll("section")[1].querySelectorAll("div")[4].querySelector("p").innerHTML.toLowerCase()
         var typeVehicule = article.querySelectorAll("section")[1].querySelectorAll("div")[6].querySelector("p").innerHTML.toLowerCase()
+        var filtreType = true
 
         if ( (document.getElementById("suvCheck").checked & typeVehicule == "suv") |
         (document.getElementById("sportCheck").checked & typeVehicule == "sport") |
@@ -86,5 +108,67 @@ function checkFiltres(){
         }
     }
 }
+
+function checkFiltresAgences(){
+    for (let i=1; i<allArticleAgences.length + 1; i++){
+        var article = document.querySelector(`.articleAgence${i}`)
+        var recherche = document.querySelector(".rechercheAgence").value
+        var ville = article.querySelectorAll("div")[0].querySelector("p").innerHTML.substring(25)
+        var codePostal = article.querySelectorAll("div")[1].querySelector("p").innerHTML.substring(30)
+        var region = article.querySelectorAll("div")[2].querySelector("p").innerHTML.substring(26)
+        var filtreRegion = true;
+        var filtreRecherche = true;
+
+        console.log(recherche)
+
+        
+        if ((document.getElementById("hdfCheck").checked & region == "Hauts-de-France") |
+        (document.getElementById("norCheck").checked & region == "Normandie") |
+        (document.getElementById("idfCheck").checked & region == "Îles-de-france") |
+        (document.getElementById("gesCheck").checked & region == "Grand Est") |
+        (document.getElementById("breCheck").checked & region == "Bretagne") |
+        (document.getElementById("pdlCheck").checked & region == "Pays de la Loire") |
+        (document.getElementById("cvlCheck").checked & region == "Centre-Val de Loire") |
+        (document.getElementById("bfcCheck").checked & region == "Bourgogne-Franche-Comté") |
+        (document.getElementById("naqCheck").checked & region == "Nouvelle-Aquitaine") |
+        (document.getElementById("araCheck").checked & region == "Auvergne-Rhône-Alpes") |
+        (document.getElementById("occCheck").checked & region == "Occitanie") |
+        (document.getElementById("pacCheck").checked & region == "Provence-Alpes-Côte d'Azur") |
+        (document.getElementById("corCheck").checked & region == "Corse") |
+        (document.getElementById("gufCheck").checked & region == "Guyane Française") |
+        (document.getElementById("reuCheck").checked & region == "Réunion") |
+        (document.getElementById("glpCheck").checked & region == "Guadeloupe") |
+        (document.getElementById("mtqCheck").checked & region == "Martinique") |
+        (document.getElementById("mytCheck").checked & region == "Mayotte") |
+        (!document.getElementById("hdfCheck").checked & !document.getElementById("norCheck").checked & !document.getElementById("idfCheck").checked & !document.getElementById("gesCheck").checked & !document.getElementById("breCheck").checked & !document.getElementById("pdlCheck").checked & !document.getElementById("cvlCheck").checked & !document.getElementById("bfcCheck").checked & !document.getElementById("naqCheck").checked & !document.getElementById("araCheck").checked & !document.getElementById("occCheck").checked & !document.getElementById("pacCheck").checked & !document.getElementById("corCheck").checked & !document.getElementById("gufCheck").checked & !document.getElementById("reuCheck").checked & !document.getElementById("glpCheck").checked & !document.getElementById("mtqCheck").checked & !document.getElementById("mytCheck").checked)){
+            filtreRegion = true
+        }
+        else{
+            filtreRegion = false
+        }
+        if (ville.includes(recherche) | ville.toLowerCase().includes(recherche) | codePostal.includes(recherche)){
+            filtreRecherche = true
+        }
+        else{
+            filtreRecherche = false
+        }
+        if (filtreRegion == true && filtreRecherche == true){
+            article.classList.remove("hidden")
+        }
+        else{
+            article.classList.add("hidden")
+        }
+    }
+}
+
+document.getElementById('locationForm').addEventListener('submit', function(event) {
+    const input = document.getElementById('dateLocation');
+    const date = new Date(input.value);
+    const hours = date.getHours();
+    if (hours < 8 || hours > 19) {
+        alert("Please select a time between 08:00 and 19:00.");
+        event.preventDefault();
+    }
+});
 
 

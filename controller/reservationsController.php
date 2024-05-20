@@ -18,4 +18,37 @@ class reservationsController{
         require "views/vehicules.view.php";
     }
 
+    public function ajoutReservation($idVehicule){
+        $this->reservationManager->ajoutReservationBDD($idVehicule, $_SESSION["idClient"], date("Y-m-d H:i:s", strtotime($_POST["dateStartLocation"])), date("Y-m-d H:i:s", strtotime($_POST["dateEndLocation"])));
+        $_SESSION["reservation"] = "Réservation éffectué";
+        header("Location: http://localhost:8000//vehicule" . $idVehicule);
+    }
+
+    public function reservation($idVehicule){
+        $reservations = $this->reservationManager->getReservations();
+        $dateStartLocation = new DateTime($_POST["dateStartLocation"]);
+        $dateEndLocation = new DateTime($_POST["dateEndLocation"]);
+        foreach($reservations as $reservation){
+            $dateStart = new DateTime($reservation->getdateDebut());
+            $dateEnd = new DateTime($reservation->getdateFin());
+            if ($idVehicule == $reservation->getidVehicule()){
+                if((($dateStartLocation > $dateStart) && ($dateStartLocation < $dateEnd)) || (($dateEndLocation > $dateStart) && ($dateEndLocation < $dateEnd))){
+                    $_SESSION["reservation"] = "Cette période est déjà occupé";
+                    header("Location: http://localhost:8000//vehicule" . $idVehicule);
+                }
+                else{
+                    unset($_SESSION["reservation"]);
+                    header("Location: http://localhost:8000//vehicule" . $idVehicule);
+                }
+            }
+            else{
+                unset($_SESSION["reservation"]);
+            }
+        }
+        if(!isset($_SESSION["reservation"])){
+            var_dump("ok");
+            $this->ajoutReservation($idVehicule);
+        }
+    }
+
 }

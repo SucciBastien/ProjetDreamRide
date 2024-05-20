@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php ob_start();?>
 
 <div id="divInscription">
     <form action="inscription/i" id="inscriptionForm" method="POST">
@@ -19,7 +19,7 @@
         <?php
             if (!empty($_SESSION["mdpDif"])){
                 echo $_SESSION["mdpDif"];
-            } 
+            }
         ?>
         <button type="submit">Inscription</button>
     </form>

@@ -13,9 +13,14 @@ class agencesController{
         $this->agenceManager->chargementAgences();
     }
 
-    public function afficherAgence(){
+    public function afficherAgences(){
         $agences = $this->agenceManager->getAgences();
-        require "views/vehicules.view.php";
+        require "views/agences.view.php";
+    }
+
+    public function afficherAgence($id){
+        $agence = $this->agenceManager->getagenceById($id);
+        require "Views/agence.view.php";
     }
 
 }

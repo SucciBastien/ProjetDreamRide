@@ -199,6 +199,42 @@ body .footer_push #divInscription form button {
   font-size: 25px;
   border-radius: 10px;
 }
+body .footer_push #divConnexion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+body .footer_push #divConnexion form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: fit-content;
+  background-color: #ccc;
+  padding: 10px;
+  border: 1px black solid;
+  box-shadow: 1px 1px 3px 3px rgba(128, 128, 128, 0.747);
+  border-radius: 20px;
+  font-size: 25px;
+  color: red;
+}
+body .footer_push #divConnexion form label {
+  margin-top: 10px;
+  color: black;
+}
+body .footer_push #divConnexion form input {
+  width: 100%;
+  height: 30px;
+  font-size: 25px;
+}
+body .footer_push #divConnexion form button {
+  margin-top: 10px;
+  background-color: #e97000;
+  font-size: 25px;
+  border-radius: 10px;
+}
 body .footer_push .section1 {
   position: relative;
   width: 90vw;
@@ -327,7 +363,7 @@ body .footer_push .section1 article:nth-of-type(2) div:nth-of-type(1) svg:nth-of
 body .footer_push .section1 article:nth-of-type(2) div:nth-of-type(1) svg:nth-of-type(n+2) path:hover {
   transform: scale(110%);
 }
-body .footer_push #filtresVehiculesContainer {
+body .footer_push #filtresContainer {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -336,30 +372,86 @@ body .footer_push #filtresVehiculesContainer {
   height: 60%;
   width: fit-content;
   background-color: #ccc;
+  z-index: 4;
+  border: 1px solid black;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
 }
-body .footer_push #filtresVehiculesContainer div {
+body .footer_push #filtresContainer div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 5px;
 }
-body .footer_push #filtresVehiculesContainer div label {
+body .footer_push #filtresContainer div label {
   width: fit-content;
   margin: 0px;
 }
-body .footer_push #filtresVehiculesContainer div input {
+body .footer_push #filtresContainer div input {
   width: fit-content;
   margin: 0px;
 }
-body .footer_push #filtresVehiculesContainer label {
+body .footer_push #filtresContainer label {
   margin: 5px;
   margin-bottom: 0px;
 }
-body .footer_push #filtresVehiculesContainer input {
+body .footer_push #filtresContainer input {
   margin: 5px;
 }
-body .footer_push #filtresVehiculesContainer select {
+body .footer_push #filtresContainer select {
   margin: 5px;
+}
+body .footer_push #filtresContainer button {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+body .footer_push #filtresContainer button img {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+body .footer_push .section_agences {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+body .footer_push .section_agences section {
+  width: fit-content;
+}
+body .footer_push .section_agences section article {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  height: fit-content;
+  border: 2px solid darkgray;
+  width: fit-content;
+  margin-top: 1.5rem;
+  box-shadow: 0px 2px 5px gray;
+  background-color: #ccc;
+}
+body .footer_push .section_agences section article div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .footer_push .section_agences section article div p {
+  height: fit-content;
+  padding: 2px;
+  margin: 2px;
+  font-size: 1.5rem;
+}
+body .footer_push .section_agences section article div p strong {
+  text-decoration: underline;
 }
 body .footer_push .section_vehicules {
   width: 100%;
@@ -578,8 +670,11 @@ body .section_vehicule div p:nth-of-type(2n-1) {
     width: 55%;
   }
 }
-.ferme {
+.fermeburger {
   translate: 100% 0%;
+}
+.fermefiltre {
+  height: 30px !important;
 }
 .hidden {
   display: none !important;

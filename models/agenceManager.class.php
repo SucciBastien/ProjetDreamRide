@@ -32,4 +32,12 @@ class agenceManager extends BDConnexion{
 
     }
 
+    public function getagenceById($id){
+        for($i=0; $i<count($this->agences); $i++){
+            if($this->agences[$i]->getidAgence() == $id){
+                return $this->agences[$i];
+            }
+        }
+    }
+
 }

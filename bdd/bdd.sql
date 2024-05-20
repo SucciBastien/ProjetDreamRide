@@ -1,7 +1,7 @@
--- DROP DATABASE voitures;
--- CREATE DATABASE IF NOT EXISTS voitures;
+DROP DATABASE voitures;
+CREATE DATABASE IF NOT EXISTS voitures;
 
--- USE voitures;
+USE voitures;
 
 DROP TABLE IF EXISTS manager ; 
 CREATE TABLE manager (
@@ -229,16 +229,17 @@ PRIMARY KEY (idAgence,  idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS reservation ; 
 CREATE TABLE reservation (
-idVehicule INT AUTO_INCREMENT NOT NULL, 
+idReservation INT AUTO_INCREMENT NOT NULL,
+idVehicule INT NOT NULL, 
 idClient INT NOT NULL, 
-dateDebut DATE NOT NULL,
-dateFin DATE NOT NULL, 
-PRIMARY KEY (idVehicule,  idClient) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
+dateDebut DATETIME NOT NULL,
+dateFin DATETIME NOT NULL, 
+PRIMARY KEY (idReservation) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;  
 
 ALTER TABLE agence ADD CONSTRAINT FK_agence_idManager FOREIGN KEY (idManager) REFERENCES manager (idManager); 
 ALTER TABLE vehicule ADD CONSTRAINT FK_vehicule_idModel FOREIGN KEY (idModel) REFERENCES model (idModel); 
 ALTER TABLE model ADD CONSTRAINT FK_model_idMarque FOREIGN KEY (idMarque) REFERENCES marque (idMarque); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idAgence FOREIGN KEY (idAgence) REFERENCES agence (idAgence); 
 ALTER TABLE contenir ADD CONSTRAINT FK_contenir_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE reservation ADD CONSTRAINT FK_louer_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
-ALTER TABLE reservation ADD CONSTRAINT FK_louer_idClient FOREIGN KEY (idClient) REFERENCES client (idClient); 
+ALTER TABLE reservation ADD CONSTRAINT FK_reservation_idVehicule FOREIGN KEY (idVehicule) REFERENCES vehicule (idVehicule); 
+ALTER TABLE reservation ADD CONSTRAINT FK_reservation_idClient FOREIGN KEY (idClient) REFERENCES client (idClient); 

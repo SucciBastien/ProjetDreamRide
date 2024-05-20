@@ -26,13 +26,17 @@
             <div></div>
         </button>
     </header>
-    <aside class="ferme" id="menu">
+    <aside class="fermeburger" id="menu">
         <button id="closeBurger">
             <div></div>
             <div></div>
         </button>
-        <a href="connexion"><button>Connexion</button></a>
-        <a href="inscription"><button>Inscription</button></a>
+        <?php if (!isset($_SESSION["compte"])) :?>
+            <a href="connexion"><button>Connexion</button></a>
+            <a href="inscription"><button>Inscription</button></a>
+        <?php else : ?>
+            <a href="deconnexion"><button>Deconnexion</button></a>
+        <?php endif ?>
     </aside>
     <div class="footer_push">
         <?= $content ?>

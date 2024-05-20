@@ -4,50 +4,68 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 require_once "controller/vehiculesController.php";
+require_once "controller/agencesController.php";
 require_once "controller/clientsController.php";
+require_once "controller/reservationsController.php";
 $vehiculesController = new vehiculesController();
+$agencesController = new agencesController();
 $clientsController = new clientsController();
+$reservationsController = new reservationsController();
 
+$url = explode("/", URL, FILTER_SANITIZE_URL);
 
-
-if(empty($_GET['page'])){
+if(empty($url[4])){
     require_once "views/accueil.view.php";
 } else {
-    $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
-    switch($url[0]){
+    
+    switch($url[4]){
         case "accueil" :
             require_once "views/accueil.view.php";
             break;
-        case substr($url[0], 0, 9) == "vehicules" :
-            if (empty($url[1])){
+        case substr($url[4], 0, 7) =="agences" :
+            $agencesController->afficherAgences();
+            break;
+        case substr($url[4], 0, 9) == "vehicules" :
+            if (empty($url[5])){
                 $vehiculesController->afficherVehicules();
             }
-            else if($url[1] === "m"){
-                $vehiculesController->modificationVehicule($url[2]);
+            else if($url[5] === "m"){
+                $vehiculesController->modificationVehicule($url[5]);
             }
-            else if($url[1] === "a"){
+            else if($url[5] === "a"){
                 $vehiculesController->ajoutVehicule();
             }
-            else if($url[1] === "d"){
-                $vehiculesController->suppressionVehicule($url[2]);
+            else if($url[5] === "d"){
+                $vehiculesController->suppressionVehicule($url[5]);
             }
             break;
-        case substr($url[0], 0, 8) == "vehicule" :
-            $vehiculesController->afficherVehicule(intval(substr($url[0], 8)));
+        case substr($url[4], 0, 8) == "vehicule" :
+            if (empty($url[5])){
+                $vehiculesController->afficherVehicule(intval(substr($url[4], 8)));
+            }
+            else if($url[5] === "r"){
+                $reservationsController->reservation(intval(substr($url[4], 8)));
+            }
             break;
         case "connexion" :
-            if (empty($url[1])){
+            if (empty($url[5])){
                 require "views/connexion.php";
+            }
+            else if($url[5] === "c"){
+                $clientsController->connexionClient();
             }
             break;
         case "inscription" :
-            if (empty($url[1])){
-                $_SESSION["mdpDif"] = "";
+            if (empty($url[5])){
                 require "views/inscription.php";
             }
-            else if($url[1] === "i"){
+            else if($url[5] === "i"){
                 $clientsController->ajoutClient();
             }
+            break;
+        case "deconnexion" :
+            session_unset();
+            header("Location: http://localhost:8000//accueil");
             break;
     }
 }
