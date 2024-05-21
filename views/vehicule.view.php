@@ -32,14 +32,18 @@ $minDate = date("Y-m-d", strtotime($minDate . "+ 1 days"));
 </section>
 <section class="section_location">
     <?php if(!isset($_SESSION["compte"])) : ?>
-        <p>Connectez-vous à votre compte client pour prendre une reservation</p>
+        <p class="infoConnexion">Connectez-vous à votre compte client pour prendre une reservation</p>
     <?php else : ?>
         <p>Choisissez les dates et heures de location (heures comprises entre 08:00 et 19:00):</p>
         <form action="<?= URL ?>/r" method="POST" id="locationForm">
-            <label for="dateStartLocation">Début de la location:</label>
-            <input type="datetime-local" id="dateStartLocation" name="dateStartLocation" min="<?= $minDate ?>T08:00" max="2100-01-01T19:00" required>
-            <label for="dateStartLocation">Fin de la location:</label>
-            <input type="datetime-local" id="dateEndLocation" name="dateEndLocation" min="<?= $minDate ?>T08:00" max="2100-01-01T19:00" required>
+            <div>
+                <label for="dateStartLocation">Début de la location:</label>
+                <input type="datetime-local" id="dateStartLocation" name="dateStartLocation" min="<?= $minDate ?>T08:00" max="2100-01-01T19:00" step="3600" required>
+            </div>
+            <div>
+                <label for="dateStartLocation">Fin de la location:</label>
+                <input type="datetime-local" id="dateEndLocation" name="dateEndLocation" min="<?= $minDate ?>T08:00" max="2100-01-01T19:00" step="3600" required>
+            </div>
             <button type="submit">Louer</button>
         </form>
         <p><?= $_SESSION["reservation"] ?></p>

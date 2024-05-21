@@ -15,17 +15,6 @@
 <section class="section1">
     <article>
         <section>
-            <div>
-                <img src="public/img/icone-fleche-gauche-orange.png" alt="">
-            </div>
-            <div>
-
-            </div>
-            <div>
-                <img src="public/img/icone-fleche-gauche-orange.png" alt="">
-            </div>
-        </section>
-        <section>
             <a href="vehiculessuv" class="SUV">SUV</a>
             <a href="vehiculessport" class="SPORT">SPORT</a>
             <a href="vehiculesluxe" class="LUXE">LUXE</a>

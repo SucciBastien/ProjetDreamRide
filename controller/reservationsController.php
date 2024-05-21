@@ -32,9 +32,10 @@ class reservationsController{
             $dateStart = new DateTime($reservation->getdateDebut());
             $dateEnd = new DateTime($reservation->getdateFin());
             if ($idVehicule == $reservation->getidVehicule()){
-                if((($dateStartLocation > $dateStart) && ($dateStartLocation < $dateEnd)) || (($dateEndLocation > $dateStart) && ($dateEndLocation < $dateEnd))){
-                    $_SESSION["reservation"] = "Cette période est déjà occupé";
+                if((($dateStartLocation > $dateStart) && ($dateStartLocation < $dateEnd)) || (($dateEndLocation > $dateStart) && ($dateEndLocation < $dateEnd)) || (($dateStartLocation < $dateStart) && ($dateEndLocation > $dateEnd))){
+                    $_SESSION["reservation"] = "La période " . $reservation->getdateDebut() ." - " . $reservation->getdateFin() . " est déjà occupé";
                     header("Location: http://localhost:8000//vehicule" . $idVehicule);
+                    break;
                 }
                 else{
                     unset($_SESSION["reservation"]);
@@ -46,7 +47,6 @@ class reservationsController{
             }
         }
         if(!isset($_SESSION["reservation"])){
-            var_dump("ok");
             $this->ajoutReservation($idVehicule);
         }
     }

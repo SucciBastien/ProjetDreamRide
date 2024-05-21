@@ -33,7 +33,7 @@ PRIMARY KEY (idAgence) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `agence` ( `idAgence`, `ville`, `codePostal`, `region`, `numAgence`, `mailAgence`, `ouverture`, `fermeture`, `idManager` )
 VALUES
-(1, "Saint Pol Sur Mer", 59430, "Hauts de France", "+33312345678", "agencesaintpolsurmer@gmail.com", "08:00:0000", "21:00:0000", 1);
+(1, "Saint Pol Sur Mer", 59430, "Hauts-de-France", "+33312345678", "agencesaintpolsurmer@gmail.com", "08:00:0000", "21:00:0000", 1);
 
 DROP TABLE IF EXISTS marque ; 
 CREATE TABLE marque (
