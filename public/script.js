@@ -118,9 +118,6 @@ function checkFiltresAgences(){
         var region = article.querySelectorAll("div")[2].querySelector("p").innerHTML.substring(26)
         var filtreRegion = true;
         var filtreRecherche = true;
-
-        console.log(recherche)
-
         
         if ((document.getElementById("hdfCheck").checked & region == "Hauts-de-France") |
         (document.getElementById("norCheck").checked & region == "Normandie") |

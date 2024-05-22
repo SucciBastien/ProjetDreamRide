@@ -115,8 +115,8 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
             }
         }?>
         <section>
-            <article class="articleVehicule articleVehicule<?= $i+1 ?>">
-                <a href="vehicule<?= $i+1 ?>">
+            <article class="articleVehicule articleVehicule<?= $vehicules[$i]->getidVehicule(); ?>">
+                <a href="vehicule<?= $vehicules[$i]->getidVehicule(); ?>">
                     <section>
                         <img src="/public/img/<?= $photo;?>">
                         <p><?= $marques[($modelsVehicule[($vehicules[$i]->getidModel()) - 1]->getidMarque()) - 1]->getnomMarque();?></p>
@@ -137,7 +137,7 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
                 <form class="formVehicule formVehicule<?= $i+1 ?>" action="<?= URL ?>vehicules/m/<?= $vehicules[$i]->getidVehicule(); ?>" method="post" enctype="multipart/form-data">
                     <p>Modification :</p>
                     <label for="nouveauImage" >Image :</label>
-                    <input type="file" name="nouveauImage" id="nouveauImage" value="/public/img/<?= $vehicules[$i]->getPhoto();?>">
+                    <input type="file" name="nouveauImage" id="nouveauImage" value="/public/img/<?= $photo;?>">
                     <label for="nouveauPrix">Changer le prix :</label>
                     <input type="number" name="nouveauPrix" id="nouveauPrix" value="<?= $vehicules[$i]->getprix();?>">
                     <label for="nouveauNbSiege">Changer le nombre de siege :</label>
