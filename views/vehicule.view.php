@@ -46,7 +46,9 @@ $minDate = date("Y-m-d", strtotime($minDate . "+ 1 days"));
             </div>
             <button type="submit">Louer</button>
         </form>
-        <p><?= $_SESSION["reservation"] ?></p>
+        <?php if(isset($_SESSION["reservation"])) :?>
+            <p><?= $_SESSION["reservation"] ?></p>
+        <?php endif ?>
     <?php endif ?>
 </section>
 

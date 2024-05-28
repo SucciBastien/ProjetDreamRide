@@ -32,7 +32,6 @@ if(closefiltres != null || openfiltres != null){
     })
 }
 
-
 if (url.substring(23, 32) == "vehicules"){
     checkFiltresVehicules()
 }
@@ -43,10 +42,9 @@ if (url.substring(23, 30) == "agences"){
 
 
 function checkFiltresVehicules(){
-
     for (let i=1; i<allArticleVehicules.length + 1; i++){
         var article = document.querySelector(`.articleVehicule${i}`)
-        var forms = document.querySelectorAll(`.formVehicule${i}`)
+        var forms = document.querySelectorAll(`.formVehicule`)
         var txtPrixHoraire = article.querySelectorAll("section")[1].querySelectorAll("div")[0].querySelector("p").innerHTML
         var prixHoraire = Number(txtPrixHoraire.substring(0, txtPrixHoraire.length - 4))
         var nbSieges = Number(article.querySelectorAll("section")[1].querySelectorAll("div")[1].querySelector("p").innerHTML)
@@ -158,14 +156,19 @@ function checkFiltresAgences(){
     }
 }
 
-document.getElementById('locationForm').addEventListener('submit', function(event) {
-    const input = document.getElementById('dateLocation');
-    const date = new Date(input.value);
-    const hours = date.getHours();
-    if (hours < 8 || hours > 19) {
-        alert("Please select a time between 08:00 and 19:00.");
-        event.preventDefault();
-    }
-});
+var locationForm = document.getElementById('locationForm')
+
+if(locationForm != null){
+    locationForm.addEventListener('submit', function(event) {
+        const input = document.getElementById('dateLocation');
+        const date = new Date(input.value);
+        const hours = date.getHours();
+        if (hours < 8 || hours > 19) {
+            alert("Please select a time between 08:00 and 19:00.");
+            event.preventDefault();
+        }
+    });   
+}
+
 
 

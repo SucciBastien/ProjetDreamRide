@@ -37,13 +37,20 @@ class vehiculesController{
         else{
             $clim = 0;
         }
-        $nomImage = $this->vehiculeManager->getVehiculeById($_POST["identifiant"])->getphoto();
-        unlink("public/img/" . $nomImage);
-        $file = $_FILES["nouveauImage"];
-        $repertoire = "public/img/";
-        $nomImageAjoute = $this->ajoutImage($file, $repertoire);
-        $this->vehiculeManager->modificationvehiculeBDD($_POST["identifiant"], $nomImageAjoute, $_POST["nouveauPrix"], $_POST["nouveauNbSiege"], $_POST["nouveauNbPorte"], $manuel, $clim, $_POST["nouveauCirculation"], $_POST["nouveauIdModel"], $_POST["nouveauIdTypeVehicule"]);
-        header('Location: ' . URL . "vehicules");
+        if($_FILES["nouveauImage"][0] != ""){
+            $nomImage = $this->vehiculeManager->getVehiculeById($_POST["identifiant"])->getphoto();
+            unlink("public/img/" . $nomImage);
+            $file = $_FILES["nouveauImage"];
+            $repertoire = "public/img/";
+            $nomImageAjoute = $this->ajoutImage($file, $repertoire);
+            $this->vehiculeManager->modificationvehiculeBDD($_POST["identifiant"], $nomImageAjoute, $_POST["nouveauPrix"], $_POST["nouveauNbSiege"], $_POST["nouveauNbPorte"], $manuel, $clim, $_POST["nouveauCirculation"], $_POST["nouveauIdModel"], $_POST["nouveauIdTypeVehicule"]);
+            header('Location: http://localhost:8000/vehicules');
+        }
+        else{
+            $nomImage = $this->vehiculeManager->getVehiculeById($_POST["identifiant"])->getphoto();
+            $this->vehiculeManager->modificationvehiculeBDD($_POST["identifiant"], $nomImage, $_POST["nouveauPrix"], $_POST["nouveauNbSiege"], $_POST["nouveauNbPorte"], $manuel, $clim, $_POST["nouveauCirculation"], $_POST["nouveauIdModel"], $_POST["nouveauIdTypeVehicule"]);
+            header('Location: http://localhost:8000/vehicules');
+        }
     }
 
     public function ajoutVehicule(){
@@ -63,7 +70,7 @@ class vehiculesController{
         $repertoire = "public/img/";
         $nomImageAjoute = $this->ajoutImage($file, $repertoire);
         $this->vehiculeManager->ajoutVehiculeBDD($nomImageAjoute, $_POST["Prix"], $_POST["NbSiege"], $_POST["NbPorte"], $manuel, $clim, $_POST["Circulation"], $_POST["idModel"], $_POST["idTypeVehicule"]);
-        header('Location: ' . URL . "vehicules");
+        header('Location: http://localhost:8000/vehicules');
     }
 
     public function ajoutImage($file, $dir){
@@ -116,7 +123,7 @@ class vehiculesController{
         $this->vehiculeManager->suppressionVehiculeBDD($id);
 
         //Redirection vers la page des vehicules
-        header("Location: " . URL . "vehicules");
+        header('Location: http://localhost:8000/vehicules');
     }
     
 

@@ -32,10 +32,12 @@
             <div></div>
         </button>
         <?php if (!isset($_SESSION["compte"])) :?>
-            <a href="connexion"><button>Connexion</button></a>
-            <a href="inscription"><button>Inscription</button></a>
+            <a href="connexion">Connexion</a>
+            <a href="inscription">Inscription</a>
         <?php else : ?>
-            <a href="deconnexion"><button>Deconnexion</button></a>
+            <a href="deconnexion">Deconnexion</a>
+            <a href="vehicules">Véhicules</a>
+            <a href="agences">Agences</a>
         <?php endif ?>
     </aside>
     <div class="footer_push">

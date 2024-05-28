@@ -71,7 +71,7 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
 
 <section class="section_vehicules">
     <?php if(isset($_SESSION["compte"]) && $_SESSION["compte"] == "manager") :?>
-        <form action="<?= URL ?>vehicules/a" method="post" enctype="multipart/form-data" style="border: 2px solid darkgray; margin-top: 20px;">
+        <form action="vehicules/a" method="post" enctype="multipart/form-data" style="border: 2px solid darkgray; margin-top: 20px;">
             <label for="image" >Image :</label>
             <input type="file" id="image" name="image">
             <label for="Prix">Prix :</label>
@@ -115,7 +115,7 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
             }
         }?>
         <section>
-            <article class="articleVehicule articleVehicule<?= $vehicules[$i]->getidVehicule(); ?>">
+            <article class="articleVehicule articleVehicule<?= $i+1 ?>">
                 <a href="vehicule<?= $vehicules[$i]->getidVehicule(); ?>">
                     <section>
                         <img src="/public/img/<?= $photo;?>">
@@ -171,7 +171,7 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
                     <input type="hidden" name="identifiant" value="<?= $vehicules[$i]->getidVehicule();?>">
                     <button type="submit">Valider</button>
                 </form>
-                <form class="formVehicule formVehicule<?= $i+1 ?>" action="<?= URL ?>vehicules/d/<?= $vehicules[$i]->getidVehicule(); ?>" method="post">
+                <form class="formVehicule formVehicule<?= $i+1 ?>" action="http://localhost:8000//vehicules/d/<?= $vehicules[$i]->getidVehicule(); ?>" method="post">
                     <button type="submit" style="background-color: red;">SUPPRIMER</button>
                 </form>
             <?php endif ?>
@@ -180,7 +180,6 @@ $url = explode("/", URL, FILTER_SANITIZE_URL);
     <?php endfor; ?>
 </section>
 
-<script src="../public/checkType.js"></script>
 <?php
 $content = ob_get_clean();
 require_once "template.php";

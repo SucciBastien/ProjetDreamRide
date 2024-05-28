@@ -30,13 +30,13 @@ if(empty($url[4])){
                 $vehiculesController->afficherVehicules();
             }
             else if($url[5] === "m"){
-                $vehiculesController->modificationVehicule($url[5]);
+                $vehiculesController->modificationVehicule($url[6]);
             }
             else if($url[5] === "a"){
                 $vehiculesController->ajoutVehicule();
             }
             else if($url[5] === "d"){
-                $vehiculesController->suppressionVehicule($url[5]);
+                $vehiculesController->suppressionVehicule($url[6]);
             }
             break;
         case substr($url[4], 0, 8) == "vehicule" :

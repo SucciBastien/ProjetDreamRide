@@ -194,9 +194,9 @@ PRIMARY KEY (idVehicule) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `vehicule`( `idVehicule`, `photo`, `prix`, `siege`, `porte`, `estManuel`, `clim`, `annee`, `idModel`, `idTypeVehicule` )
 VALUES
-(1, "206_XBOX_360", 49.98, 5, 5, 1, 0, 2007, 1, 5),
-(2, "proace", 70, 6, 4, 0, 1, 2018, 7, 7),
-(3, "taycan", 149.98, 4, 4, 0, 1, 2020, 8, 3);
+(1, "206_XBOX_360.jpg", 49.98, 5, 5, 1, 0, 2007, 1, 5),
+(2, "proace.jpg", 70, 6, 4, 0, 1, 2018, 7, 7),
+(3, "taycan.jpeg", 149.98, 4, 4, 0, 1, 2020, 8, 3);
 
 
 DROP TABLE IF EXISTS client ; 
